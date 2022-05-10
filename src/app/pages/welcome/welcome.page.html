@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title class="ion-text-center" style="font-size: 2em;">GymEat!
+      <img src="assets\dieta-equilibrada.png" style="width: 50px;vertical-align: middle; margin-left: 20px;">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <ion-label>
+    <img src="../assets/pngwing.com.png" alt="">
+    <h1>Bienvenido</h1>
+  </ion-label>
+  <ion-list class="formLoggin">
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="email" placeholder="Usuario" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" [(ngModel)]="pass" placeholder="Contraseña"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="login()" color="success" style="margin-top: 10px; margin-left: 110px;">Entrar</ion-button>
+
+  <div style="text-align: center; margin-top: 10px;">
+    <a href="/registro" style="color: white;">¿Aún no estás registrado?</a>
+  </div>
+  <div style="text-align: center; margin-top: 10px;">
+    <a href="/reset-password" style="color: white;">¿Has olvidado la contraseña?</a>
+  </div>
+</ion-content>
+

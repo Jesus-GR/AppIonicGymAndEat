@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="blank"></ion-icon>
+     GymEat
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-select placeholder="Día semana" [ngModel]="diaSemana">
+      <ion-select-option value="lunes">Lunes</ion-select-option>
+      <ion-select-option value="martes">Martes</ion-select-option>
+      <ion-select-option value="miercoles">Miércoles</ion-select-option>
+      <ion-select-option value="jueves">Jueves</ion-select-option>
+      <ion-select-option value="viernes">Viernes</ion-select-option>
+      <ion-select-option value="sabado">Sábado</ion-select-option>
+      <ion-select-option value="domingo">Domingo</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-select placeholder="Grupo muscular"[ngModel]="grupoMuscular">
+      <ion-select-option value="dorsales">Dorsales</ion-select-option>
+      <ion-select-option value="pectorales">Pectorales</ion-select-option>
+      <ion-select-option value="hombros">Hombros</ion-select-option>
+      <ion-select-option value="biceps">Bíceps</ion-select-option>
+      <ion-select-option value="triceps">Tríceps</ion-select-option>
+      <ion-select-option value="piernas">Piernas</ion-select-option>
+      <ion-select-option value="core">Core</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button expand="block" shape="round" color="success" fill="outline" (click)="openOrCloseModal()">
+    <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+    Agregar ejercicio
+  </ion-button>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <br>
+      <br>
+      <ion-input clearInput placeholder="Nombre del ejercicio" [ngModel]="nombreEjercicio"></ion-input>
+      <ion-input type="number" clearInput placeholder="Número de series" [ngModel]="numSeries"></ion-input>
+      <ion-input type="number" clearInput placeholder="Número de repeticiones" [ngModel]="numRepeticiones"></ion-input>
+      <ion-input type="number" clearInput placeholder="Kilos" [ngModel]="kilos"></ion-input>
+      <ion-button color="success" (click)="saveRoutine()">Guardar</ion-button>
+      <ion-button color="danger" (click)="openOrCloseModal()" >Cancelar</ion-button>
+
+
+    </ng-template>
+  </ion-modal>
+</ion-content>

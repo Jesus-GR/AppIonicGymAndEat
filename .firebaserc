@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gymandeat-f143b": {
+      "hosting": {
+        "app": [
+          "gymandeat-f143b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gymandeat-f143b"
+  }
+}

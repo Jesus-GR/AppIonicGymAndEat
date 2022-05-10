@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="blank"></ion-icon>
+     Rutinas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button expand="block" shape="round" color="success" fill="outline" (click)="goToRoutines()">
+    <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+    Add routines
+  </ion-button>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-input clearInput placeholder="Nombre de la rutina"></ion-input>
+    </ng-template>
+  </ion-modal>
+
+  <!--{{usuarioService.getUserData('VMnThSB5GSLvYaSfKiiH') |async |json}}-->
+</ion-content>
+
