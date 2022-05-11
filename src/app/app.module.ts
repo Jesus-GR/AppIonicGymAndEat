@@ -17,12 +17,15 @@ import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MenuComponent } from './components/menu/menu.component';
 
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     IonicModule.forRoot({
       rippleEffect: false,
       mode: 'md'
@@ -34,8 +37,10 @@ import { MenuComponent } from './components/menu/menu.component';
     provideAuth(() => getAuth()), provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
-    provideStorage(() => getStorage())],
+    provideStorage(() => getStorage())
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },FatSecretService,ScreenTrackingService,UserTrackingService],
   bootstrap: [AppComponent],
+
 })
 export class AppModule {}

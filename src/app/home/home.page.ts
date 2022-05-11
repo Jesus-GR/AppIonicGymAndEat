@@ -36,11 +36,7 @@ constructor(
   }
 
   cambiarEsDesplegado(){
-    if(this.esDesplegado === false){
-      this.esDesplegado = true;
-    }else{
-      this.esDesplegado= false;
-    }
+    this.esDesplegado = !this.esDesplegado;
   }
   async presentAlertConfirm(a: Food) {
     const alert = await this.alertController.create({

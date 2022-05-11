@@ -4,6 +4,7 @@ export interface Ejercicio {
   grupoMuscular?: string;
   numeroSeries?: number;
   numeroRepeticiones?: number;
+  diaSemana?: string;
   peso?: number;
   pesoMaximo?: number;
   rutinaID?: string;

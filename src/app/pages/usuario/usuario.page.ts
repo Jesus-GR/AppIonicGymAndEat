@@ -18,11 +18,11 @@ export class UsuarioPage implements OnInit {
     private usuarioService: UsuarioService,
     private authService: AuthService) {}
 
-  @Input()
+
   peso: number;
-  @Input()
+
   edad: string;
-  @Input()
+
   imc: number;
 
   ngOnInit() {

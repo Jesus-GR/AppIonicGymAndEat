@@ -22,11 +22,7 @@ export class FavPage implements OnInit {
   }
 
   cambiarEsDesplegado(){
-    if(this.esDesplegado === false){
-      this.esDesplegado = true;
-    }else{
-      this.esDesplegado = false;
-    }
+    this.esDesplegado = !this.esDesplegado;
   }
   async presentAlertConfirma(f: Food) {
     const alert = await this.alertController.create({

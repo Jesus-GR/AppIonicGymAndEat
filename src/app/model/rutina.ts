@@ -2,7 +2,7 @@ import { Ejercicio } from './ejercicio';
 
 export interface Rutina {
   rutinaID?: string;
+  usuarioID?: string;
   nombreRutina?: string;
-  diaSemana?: string;
   ejercicios?: Ejercicio[];
 }

@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UsuarioService{
-  //usuarios: Usuario[] = [];
+  usuarios: Usuario[] = [];
   usuario: Usuario;
 
   constructor(private firestore: Firestore,

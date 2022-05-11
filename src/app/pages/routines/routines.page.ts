@@ -16,9 +16,6 @@ export class RoutinesPage implements OnInit {
   ngOnInit() {
   }
 
-  changeModal(){
-    this.isModalOpen = !this.isModalOpen;
-  }
   goToRoutines(){
     this.router.navigateByUrl('/registro-rutinas');
   }
