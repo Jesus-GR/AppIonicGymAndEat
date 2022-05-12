@@ -7,8 +7,9 @@ Estos son los elementos que he añadido:
   -- Dichos ejercicios se añadirán a Firebase también.
   -- Hay otra sección donde podrás acceder a una base de datos de alimentos(a través de una API) y ver el valor nutricional. Esta sección está aún en proceso de construcción.
   -- He añadido un menú lateral que están en todas las páginas, para poder desloguearte, acceder a la configuración...
+  -- [Enlace del video en youtube](https://youtu.be/cdwOAmSZbO0) 
   
-  [Enlace del video en youtube](https://youtu.be/cdwOAmSZbO0) 
+  
 ![pantallaLogin](https://user-images.githubusercontent.com/72436145/168106056-1741d0a2-d6d3-4409-b151-c8f71730d72d.png)
 ![errorAutenticaciónp](https://user-images.githubusercontent.com/72436145/168106083-480b83a4-9859-40e7-89f4-0b298f134897.png)
 ![registro](https://user-images.githubusercontent.com/72436145/168106128-6708bd1f-f8fe-4779-9b50-dda511dcfca3.png)
