@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,48 +12,45 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./usuario.page.scss'],
 })
 export class UsuarioPage implements OnInit {
-  usuario: Usuario = {};
-
+  user: Usuario = {};
+  users: Usuario[] = [];
+  currentUserId: string;
+  showModal: boolean;
   constructor(
     public router: Router,
     private usuarioService: UsuarioService,
-    private authService: AuthService) {}
+    private authService: AuthService) {
 
-
-  peso: number;
-
-  edad: string;
-
-  imc: number;
+      this.currentUserId = this.authService.getCurrentUser().uid;
+      //this.user = this.authService.getCurrentUser();
+        }
 
   ngOnInit() {
-    //this.usuarioService.getUsuFromStorage().then(data => this.usuario = data);
+
   }
 
-  /*cambiarDatos(){
-    this.usuarioService.saveUsuario(this.usuario);
-  }*/
   goToFood() {
     this.router.navigateByUrl('food');
-  }
-  goToUser() {
-    this.router.navigateByUrl('usuario');
-  }
-  goHome() {
-    this.router.navigateByUrl('fav');
   }
   goToGym(){
     this.router.navigateByUrl('routines');
   }
-  /*eliminarUsuario(){
-    this.usuarioService.deleteUsuario();
-    this.ngOnInit();
-    this.router.navigateByUrl('registro');
-  }*/
-
   logout(){
     this.authService.logout();
     this.router.navigateByUrl('welcome');
+  }
+
+  addUser(){
+    /*this.user.uid = 'Mierda de app';
+    this.user.nombre = 'usu2';
+    this.user.email = this.authService.getCurrentUser().email;
+    this.user.edad = '3';
+    this.usuarioService.addUser(this.user);*/
+    this.usuarioService.getUsers().subscribe(data => this.users = data);
+    console.log(this.users);
+    this.usuarioService.getUser('uCVygcm7dvGUUgoOxjAz').subscribe(data => this.user = data);
+    console.log(this.user);
+
   }
 
 }

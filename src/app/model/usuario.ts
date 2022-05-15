@@ -1,7 +1,7 @@
 import { Rutina } from './rutina';
 
 export interface Usuario {
-    usuarioID?: string;
+    uid?: string;
     email?: string;
     password?: string;
     nombre?: string;
@@ -9,6 +9,4 @@ export interface Usuario {
     peso?: number;
     altura?: number;
     imc?: number;
-
-    rutina?: Rutina[];
 }

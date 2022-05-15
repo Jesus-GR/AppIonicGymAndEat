@@ -10,33 +10,27 @@
 <ion-content>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home" style="background-color: rgb(0, 225, 255);"(click)="goToFood()">
+      <ion-tab-button  style="background-color: rgb(0, 225, 255);"(click)="goToFood()">
         <ion-icon name="restaurant-outline" color="dark"></ion-icon>
         <ion-label>Food</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="user" style="background-color: rgb(0, 225, 255);" (click)="goToGym()">
+      <ion-tab-button  style="background-color: rgb(0, 225, 255);" (click)="goToGym()">
         <ion-icon name="barbell-outline" color="dark"></ion-icon>
-        <ion-label color="dark">Gym</ion-label>
+        <ion-label>Gym</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
 
     <div id="contenedor">
-      <ion-card>
-        <h2>Bienvenido {{usuario.nombre }}</h2>
-        <img src="https://www.ocu.org/-/media/altroconsumo/images/home/alimentazione/dimagrire/dossier/dieta-dimagrante-main-site-news_800x450.jpg?rev=64d2cd6e-cfb1-4d8c-bb78-98545e05aca8&mw=480&hash=DA4BBE69FE6EC41450227D087A2084B2"/>
-        <ion-card-content>
-           <p>Aquí podrás realizar un seguimiento de tus progresos</p>
-          <ion-card-title>
-              <ion-input (change)="cambiarDatos()" type="number" [(ngModel)]="usuario.edad" >Edad: </ion-input>
-              <ion-input (change)="cambiarDatos()"  type="number"[(ngModel)]="usuario.peso">Peso:</ion-input>
-              <ion-input (change)="cambiarDatos()"  type="number" [(ngModel)]="usuario.altura">Altura:</ion-input>
-            </ion-card-title>
-        </ion-card-content>
-      </ion-card>
-
+      Current user {{currentUserId}}
+      <hr>
+      User {{user |json}}
     </div>
+
+    <ion-button (click)="addUser()">AddUser</ion-button>
+
+
 
 
 </ion-content>

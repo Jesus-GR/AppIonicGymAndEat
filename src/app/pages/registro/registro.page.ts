@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/semi */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable eqeqeq */
 /* eslint-disable @typescript-eslint/member-ordering */
@@ -13,7 +14,9 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  usuario: Usuario = {};
+  usuario: Usuario = {
+    uid: ''
+  };
 
   @Input()
   email: string;
@@ -30,9 +33,11 @@ export class RegistroPage implements OnInit {
   register() {
     this.usuario.email == this.email;
     this.usuario.password == this.password;
-    this.usuarioService.addProduct(this.usuario);
     this.authService.register(this.email, this.password)
-    .then(()=> this.router.navigateByUrl('usuario'));
+    .then(()=> {
+      this.usuarioService.addUserInfo(this.usuario);
+      this.router.navigateByUrl('usuario')
+    });
   }
 
 }

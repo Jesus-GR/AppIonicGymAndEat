@@ -23,47 +23,33 @@ export class RegistroRutinasPage implements OnInit {
   ejercicios: Ejercicio[] = [];
   usuario: Usuario;
 
-  nombreRutina: string;
-  nombreEjercicio: string;
-  numeroSeries: number;
-  numeroRepeticiones: number;
-  peso: number;
-  gupoMuscular: string;
 
   constructor(private rutinaService: RutinaService,
-              private usuarioService: UsuarioService,
               private auth: AuthService ) {
 
    }
 
   ngOnInit() {
-    this.usuario = this.auth.getCurrentUser();
-    console.log('Este es el usuario',this.usuario);
+
   }
 
   openOrCloseModal(){
     this.isModalOpen = !this.isModalOpen;
-    this.nombreEjercicio = '';
-    this.numeroSeries = null;
-    this.numeroRepeticiones = null;
-    this.peso = null;
+    this.ejercicio = {};
   }
 
 
   onSubmit() {
-    this.ejercicio.nombreEjercicio = this.nombreEjercicio;
-    this.ejercicio.numeroSeries = this.numeroSeries;
-    this.ejercicio.numeroRepeticiones = this.numeroRepeticiones;
-    this.ejercicio.peso = this.peso;
-    this.ejercicio.grupoMuscular = this.gupoMuscular;
     this.ejercicios.push(this.ejercicio);
     this.isModalOpen = !this.isModalOpen;
     this.ejercicio = {};
 }
 
   submitRutina(){
-   // this.rutina.ejercicios = this.ejercicios;
-    this.rutinaService.addProduct(this.rutina);
+    this.rutina.usuarioID = this.auth.getCurrentUser().uid;
+    this.rutina.ejercicios = this.ejercicios;
+    this.rutinaService.addUserRutina(this.rutina);
+
 
   }
 }

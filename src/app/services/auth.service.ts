@@ -9,6 +9,7 @@ import {
   UserCredential,
   sendPasswordResetEmail
 } from '@angular/fire/auth';
+import { addDoc } from 'firebase/firestore';
 import { Usuario } from '../model/usuario';
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,7 @@ export class AuthService {
       return sendPasswordResetEmail(this.auth, email);
       }
 
-  getCurrentUser(): Usuario {
+  getCurrentUser(): any {
     return getAuth().currentUser;
     }
 

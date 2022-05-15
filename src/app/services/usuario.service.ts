@@ -5,6 +5,7 @@ import { Capacitor } from '@capacitor/core';
 import { Storage } from '@capacitor/storage';
 import { addDoc, collection, collectionData, deleteDoc, doc, docData, Firestore, setDoc } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
+import { Rutina } from '../model/rutina';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +19,42 @@ export class UsuarioService{
     //this.getUsuFromStorage().then(data => this.usuario = data);
   }
 
-public async addProduct(usuario: Usuario) {
-    await addDoc(collection(this.firestore, 'usuarios'), usuario);
+  async addUserInfo(usuario: Usuario) {
+    await addDoc(
+      collection(
+        this.firestore,
+        `usuario/${this.auth.getCurrentUser().uid}/infoUser`
+      ),
+      usuario
+    );
   }
 
-getUserData(id: string): Observable<Usuario>{
-  return docData(doc(this.firestore,`usuarios/${id}`),{idField: 'usuarioID'}) as Observable<Usuario>;
+
+getUserData(uid: string): Observable<Usuario>{
+  return docData(doc(this.firestore,`usuarios/${uid}`),{idField: 'uid'}) as Observable<Usuario>;
 }
 
+public getUsers(): Observable<Usuario[]> {
+  return collectionData(collection(this.firestore, 'usuarios'), {
+    idField: 'uid',
+  }) as Observable<Usuario[]>;
+}
+
+//docData es una fila de la bbdd
+public getUser(id: string): Observable<Usuario>{
+  return docData(doc(this.firestore,`usuarios/${id}`),{idField: 'uid'}) as Observable<Usuario>;
+}
+
+//Eliminar producto
+async deleteUser(uid: string){
+  const docRef = doc(this.firestore,`usuarios/${uid}`);
+  await deleteDoc(docRef);
+}
+
+//Actualizar producto
+async updateUser(usuario: Usuario){
+  await setDoc(doc(this.firestore, `usuarios/${usuario.uid}`), usuario);
+}
 
  /*
   getUsuarios():Observable<Usuario[]>{

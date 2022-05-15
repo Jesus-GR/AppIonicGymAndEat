@@ -16,6 +16,11 @@
     Add routines
   </ion-button>
 
-  <!--{{usuarioService.getUserData('VMnThSB5GSLvYaSfKiiH') |async |json}}-->
+
+  <ion-list *ngFor="let r of rutinas">
+    <ion-item (click)="goToRutinaDetail(r.rutinaID)">
+    {{r.nombreRutina}}
+    </ion-item>
+  </ion-list>
 </ion-content>
 
