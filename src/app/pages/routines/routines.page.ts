@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/member-ordering */
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -18,19 +18,16 @@ export class RoutinesPage implements OnInit {
               private router: Router,
               public rutinaService: RutinaService,
               private auth: AuthService) { }
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   isModalOpen: boolean;
 
   ngOnInit() {
     this.rutinaService.getRutinas().subscribe(data => this.rutinas = data);
-    console.log(this.auth.getCurrentUser().uid);
-    console.log(this.rutinas);
   }
 
   goToRoutines(){
     this.router.navigateByUrl('/registro-rutinas');
   }
 
-  goToRutinaDetail(id: string){
-  }
 
 }

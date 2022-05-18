@@ -29,14 +29,13 @@ async addUserRutina(rutina: Rutina) {
 
 /* Get All Rutinas */
 getRutinas(): Observable<Rutina[]> {
-  console.log(this.auth.getCurrentUser().uid);
   return collectionData(collection(this.firestore, `usuario/${this.auth.getCurrentUser().uid}/rutinas`), {
     idField: "rutinaID"
   }) as Observable<Rutina[]>;
 }
 
 /* Get a Rutina */
-getEmployee(id: string): Observable<Rutina> {
+getRutina(id: string): Observable<Rutina> {
   return docData(doc(this.firestore,`usuario/${this.auth.getCurrentUser().uid}/rutinas/${id}`), {
     idField: "rutinaID"
   }) as Observable<Rutina>;

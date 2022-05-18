@@ -18,7 +18,7 @@
 
 
   <ion-list *ngFor="let r of rutinas">
-    <ion-item (click)="goToRutinaDetail(r.rutinaID)">
+    <ion-item routerLink="/rutina-detail/{{r.rutinaID}}">
     {{r.nombreRutina}}
     </ion-item>
   </ion-list>

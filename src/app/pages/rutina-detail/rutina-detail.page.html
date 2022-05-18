@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="blank"></ion-icon>
+     {{rutina.nombreRutina}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button  style="background-color: rgb(0, 225, 255);"(click)="goToFood()">
+        <ion-icon name="restaurant-outline" color="dark"></ion-icon>
+        <ion-label>Food</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button  style="background-color: rgb(0, 225, 255);" (click)="goToGym()">
+        <ion-icon name="barbell-outline" color="dark"></ion-icon>
+        <ion-label>Gym</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <pre>{{arrayEjercicios |json}}</pre>
+<hr>
+<pre>{{lunes |json}}</pre>
+</ion-content>

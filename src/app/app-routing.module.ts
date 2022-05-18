@@ -49,10 +49,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/registro-rutinas/registro-rutinas.module').then( m => m.RegistroRutinasPageModule)
   },
   {
+    path: 'rutina-detail/:id',
+    loadChildren: () => import('./pages/rutina-detail/rutina-detail.module').then( m => m.RutinaDetailPageModule)
+  },
+  {
     path: '',
     redirectTo: 'welcome',
     pathMatch: 'full'
   }
+
+
 
 
 

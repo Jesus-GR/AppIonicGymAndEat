@@ -8,6 +8,7 @@ import { RutinaService } from 'src/app/services/rutina.service';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-rutinas',
@@ -25,7 +26,8 @@ export class RegistroRutinasPage implements OnInit {
 
 
   constructor(private rutinaService: RutinaService,
-              private auth: AuthService ) {
+              private auth: AuthService,
+              private router: Router ) {
 
    }
 
@@ -49,6 +51,7 @@ export class RegistroRutinasPage implements OnInit {
     this.rutina.usuarioID = this.auth.getCurrentUser().uid;
     this.rutina.ejercicios = this.ejercicios;
     this.rutinaService.addUserRutina(this.rutina);
+    this.router.navigateByUrl('/routines');
 
 
   }
