@@ -21,16 +21,21 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
+  <pre>{{user |json}}</pre>
 
-    <div id="contenedor">
-      Current user {{currentUserId}}
-      <hr>
-      User {{user |json}}
-    </div>
+  <ion-modal [isOpen]="showModal">
+    <ng-template>
+      <ion-input placeholder="Nombre" [(ngModel)]="this.user.nombre"></ion-input>
+      <ion-input type="number" placeholder="Edad" [(ngModel)]="this.user.edad"></ion-input>
+      <ion-input type="number" placeholder="Peso" [(ngModel)]="this.user.peso"></ion-input>
+      <ion-input type="number" placeholder="Altura" [(ngModel)]="this.user.altura"></ion-input>
+      <ion-input type="number" placeholder="I.M.C." [(ngModel)]="this.user.imc"></ion-input>
+      <ion-button color="success" (click)="addUser()">
+        <ion-label>Añadir</ion-label>
+      </ion-button>
 
-    <ion-button (click)="addUser()">AddUser</ion-button>
 
-
-
+    </ng-template>
+  </ion-modal>
 
 </ion-content>

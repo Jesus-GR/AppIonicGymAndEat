@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, Input, OnInit } from '@angular/core';
@@ -18,7 +19,7 @@ export class UsuarioPage implements OnInit {
   showModal: boolean;
   constructor(
     public router: Router,
-    private usuarioService: UsuarioService,
+    public usuarioService: UsuarioService,
     private authService: AuthService) {
 
       this.currentUserId = this.authService.getCurrentUser().uid;
@@ -26,7 +27,13 @@ export class UsuarioPage implements OnInit {
         }
 
   ngOnInit() {
-
+    this.usuarioService.getUsers().subscribe(data => {this.users = data; this.user = this.users[0];});
+    //!this.user.nombre? this.showModal: !this.showModal; Preguntar a Luis
+    if(this.user.nombre != null){
+      this.showModal = false;
+    }else{
+      this.showModal = true;
+    }
   }
 
   goToFood() {
@@ -41,16 +48,10 @@ export class UsuarioPage implements OnInit {
   }
 
   addUser(){
-    /*this.user.uid = 'Mierda de app';
-    this.user.nombre = 'usu2';
-    this.user.email = this.authService.getCurrentUser().email;
-    this.user.edad = '3';
-    this.usuarioService.addUser(this.user);*/
-    this.usuarioService.getUsers().subscribe(data => this.users = data);
-    console.log(this.users);
-    this.usuarioService.getUser('uCVygcm7dvGUUgoOxjAz').subscribe(data => this.user = data);
+    this.user = this.user;
+    this.usuarioService.updateUser(this.user);
     console.log(this.user);
+    this.showModal = false;
 
   }
-
 }

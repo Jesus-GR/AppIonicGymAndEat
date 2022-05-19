@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { Injectable, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Usuario } from '../model/usuario';
@@ -35,14 +36,14 @@ getUserData(uid: string): Observable<Usuario>{
 }
 
 public getUsers(): Observable<Usuario[]> {
-  return collectionData(collection(this.firestore, 'usuarios'), {
+  return collectionData(collection(this.firestore, `usuario/${this.auth.getCurrentUser().uid}/infoUser`), {
     idField: 'uid',
   }) as Observable<Usuario[]>;
 }
 
 //docData es una fila de la bbdd
 public getUser(id: string): Observable<Usuario>{
-  return docData(doc(this.firestore,`usuarios/${id}`),{idField: 'uid'}) as Observable<Usuario>;
+  return docData(doc(this.firestore,`usuario/${this.auth.getCurrentUser().uid}/infoUser${id}`),{idField: 'uid'}) as Observable<Usuario>;
 }
 
 //Eliminar producto
@@ -53,7 +54,7 @@ async deleteUser(uid: string){
 
 //Actualizar producto
 async updateUser(usuario: Usuario){
-  await setDoc(doc(this.firestore, `usuarios/${usuario.uid}`), usuario);
+  await setDoc(doc(this.firestore, `usuario/${this.auth.getCurrentUser().uid}/infoUser/${usuario}`), {idField: 'uid'});
 }
 
  /*
