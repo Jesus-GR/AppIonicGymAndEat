@@ -24,7 +24,16 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-  <pre>{{arrayEjercicios |json}}</pre>
-<hr>
-<pre>{{lunes |json}}</pre>
+    <ion-list  *ngFor="let d of diasSemana">
+      <ion-button [disabled]="!hayRutinEnDia(d)" (click)="showModal(d)">{{d}}</ion-button>
+    </ion-list>
+
+    <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-button color="danger" (click)="showModal()">Cerrar</ion-button>
+      <pre>{{rutina.ejercicios |filterByDay: diaSeleccionado |json}}</pre>
+    </ng-template>
+    </ion-modal>
+
+
 </ion-content>

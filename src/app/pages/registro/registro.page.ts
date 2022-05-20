@@ -18,11 +18,6 @@ export class RegistroPage implements OnInit {
     uid: ''
   };
 
-  @Input()
-  email: string;
-  @Input()
-  password: string;
-
   constructor(public router: Router,
               private authService: AuthService,
               private usuarioService: UsuarioService) { }
@@ -30,10 +25,8 @@ export class RegistroPage implements OnInit {
   ngOnInit() {
   }
 
-  register() {
-    this.usuario.email == this.email;
-    this.usuario.password == this.password;
-    this.authService.register(this.email, this.password)
+  register() {;
+    this.authService.register(this.usuario.email, this.usuario.password)
     .then(()=> {
       this.usuarioService.addUserInfo(this.usuario);
       this.router.navigateByUrl('usuario')

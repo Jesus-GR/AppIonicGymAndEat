@@ -15,10 +15,22 @@
   <div id="contenedor">
     <ion-list >
       <ion-item>
-        <ion-input type="text" [(ngModel)]="email" placeholder="Correo electrónico" ></ion-input>
+        <ion-input type="text" [(ngModel)]="usuario.email" placeholder="Correo electrónico" ></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="password" [(ngModel)]="password" placeholder="Contraseña" ></ion-input>
+        <ion-input type="password" [(ngModel)]="usuario.password" placeholder="Contraseña" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="usuario.nombre" placeholder="Nombre" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="usuario.edad" placeholder="Edad" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="usuario.altura" placeholder="Altura" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="usuario.imc" placeholder="I.M.C." ></ion-input>
       </ion-item>
     </ion-list>
 
@@ -26,4 +38,6 @@
       Registrarse
     </ion-button>
     </div>
+
+    <pre>{{usuario |json}}</pre>
 </ion-content>

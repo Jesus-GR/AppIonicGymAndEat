@@ -28,12 +28,6 @@ export class UsuarioPage implements OnInit {
 
   ngOnInit() {
     this.usuarioService.getUsers().subscribe(data => {this.users = data; this.user = this.users[0];});
-    //!this.user.nombre? this.showModal: !this.showModal; Preguntar a Luis
-    if(this.user.nombre != null){
-      this.showModal = false;
-    }else{
-      this.showModal = true;
-    }
   }
 
   goToFood() {
@@ -45,13 +39,5 @@ export class UsuarioPage implements OnInit {
   logout(){
     this.authService.logout();
     this.router.navigateByUrl('welcome');
-  }
-
-  addUser(){
-    this.user = this.user;
-    this.usuarioService.updateUser(this.user);
-    console.log(this.user);
-    this.showModal = false;
-
   }
 }

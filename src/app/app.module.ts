@@ -18,6 +18,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MenuComponent } from './components/menu/menu.component';
 
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { FilterByDayPipe } from './filter-by-day.pipe';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
