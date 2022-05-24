@@ -42,6 +42,8 @@ export class RegistroRutinasPage implements OnInit {
 
 
   onSubmit() {
+    this.ejercicio.registroPesos = [];
+    this.ejercicio.pesoMaximo = null;
     this.ejercicios.push(this.ejercicio);
     this.isModalOpen = !this.isModalOpen;
     this.ejercicio = {};

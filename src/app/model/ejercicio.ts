@@ -5,7 +5,7 @@ export interface Ejercicio {
   numeroSeries?: number;
   numeroRepeticiones?: number;
   diaSemana?: string;
-  peso?: number;
   pesoMaximo?: number;
   rutinaID?: string;
+  registroPesos?: number[];
 }

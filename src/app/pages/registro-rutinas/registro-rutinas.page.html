@@ -12,9 +12,15 @@
 
 <ion-content>
 <ion-input type="text" placeholder="Nombre Rutina" [(ngModel)]="rutina.nombreRutina"></ion-input>
+<ion-button (click)="openOrCloseModal()" style="margin-left: 70px">Añadir ejercicio</ion-button>
+<ion-item>
+  <ion-label>
+    <pre>Día   Nombre   Series   Repes</pre>
+  </ion-label>
+</ion-item>
   <ion-list *ngFor="let e of ejercicios">
     <ion-item>
-    <div>{{e.nombreEjercicio}}&nbsp;{{e.numeroSeries}}&nbsp;&nbsp;{{e.numeroRepeticiones}}&nbsp;&nbsp;{{e.peso}}</div>
+    <pre> {{e.diaSemana | firstLetter}}     {{e.nombreEjercicio}}     {{e.numeroSeries}}       {{e.numeroRepeticiones}}</pre>
     </ion-item>
   </ion-list>
 
@@ -47,17 +53,12 @@
     <ion-input type="text" clearInput  placeholder="Nombre ejercicio" [(ngModel)]="ejercicio.nombreEjercicio"></ion-input>
     <ion-input type="number" placeholder="Número de series" [(ngModel)]="ejercicio.numeroSeries"></ion-input>
     <ion-input type="number" placeholder="Número de repeticiones" [(ngModel)]="ejercicio.numeroRepeticiones"></ion-input>
-    <ion-input type="number" placeholder="Peso" [(ngModel)]="ejercicio.peso"></ion-input>
     <ion-button color="success" (click)="onSubmit()">Guardar</ion-button>
     <ion-button color="danger" (click)="openOrCloseModal()">Cancelar</ion-button>
   </ng-template>
 </ion-popover>
-  <ion-button (click)="openOrCloseModal()" style="margin-left: 70px">Añadir ejercicio</ion-button>
+
   <ion-button (click)="submitRutina()">Añadir rutina</ion-button>
-<hr>
-  Rutina {{rutina | json}}
-  <hr>
-  Ejercicio{{ejercicios | json}}
 </ion-content>
 
 

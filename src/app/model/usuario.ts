@@ -9,4 +9,5 @@ export interface Usuario {
     peso?: number;
     altura?: number;
     imc?: number;
+    image?: string;
 }

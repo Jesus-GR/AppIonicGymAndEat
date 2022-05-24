@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable eqeqeq */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/member-ordering */
@@ -17,17 +18,23 @@ export class UsuarioPage implements OnInit {
   users: Usuario[] = [];
   currentUserId: string;
   showModal: boolean;
+  imagen = 'assets/blank-profile-picture-g37dc4bba4_1280.png';
   constructor(
     public router: Router,
     public usuarioService: UsuarioService,
     private authService: AuthService) {
 
       this.currentUserId = this.authService.getCurrentUser().uid;
-      //this.user = this.authService.getCurrentUser();
         }
 
   ngOnInit() {
-    this.usuarioService.getUsers().subscribe(data => {this.users = data; this.user = this.users[0];});
+    this.usuarioService.getUsers().subscribe(data => {this.users = data;
+       this.user = this.users[0];
+       if(this.user.image != ''){
+         this.user.image = this.imagen;
+       }
+      });
+
   }
 
   goToFood() {

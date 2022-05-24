@@ -6,7 +6,6 @@ import { Food } from '../model/food';
 import { FatSecretService } from '../providers/fat-secret.service';
 import { AuthService } from '../services/auth.service';
 import { FoodService } from '../services/food.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',

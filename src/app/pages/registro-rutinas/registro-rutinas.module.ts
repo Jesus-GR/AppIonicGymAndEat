@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { RegistroRutinasPageRoutingModule } from './registro-rutinas-routing.module';
 
 import { RegistroRutinasPage } from './registro-rutinas.page';
+import { FirstLetterPipe } from 'src/app/pipes/first-letter.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { RegistroRutinasPage } from './registro-rutinas.page';
     IonicModule,
     RegistroRutinasPageRoutingModule
   ],
-  declarations: [RegistroRutinasPage]
+  declarations: [RegistroRutinasPage, FirstLetterPipe]
 })
 export class RegistroRutinasPageModule {}
