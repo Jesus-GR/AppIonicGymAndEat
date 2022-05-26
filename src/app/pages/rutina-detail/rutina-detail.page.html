@@ -30,9 +30,81 @@
 
     <ion-modal [isOpen]="isModalOpen">
     <ng-template>
-      <ion-button color="danger" (click)="showModal()">Cerrar</ion-button>
-      <pre>{{rutina.ejercicios |filterByDay: diaSeleccionado |json}}</pre>
+      <div class="content">
+        <div class="content-timer">
+          <div class="content-m">
+            <div class="time"> <h3>{{ minutes | number:'2.0'}} m</h3></div>
+            <div class="content-btn" *ngIf="show">
+              <button (click)="increment('M')"> + </button>
+              <button (click)="decrement('M')"> - </button>
+            </div>
+          </div>
+          <div class="content-s">
+            <div class="time"><h3>{{seconds | number:'2.0'}} s </h3></div>
+            <div class="content-btn" *ngIf="show">
+              <button (click)="increment('S')"> + </button>
+              <button (click)="decrement('S')"> - </button>
+            </div>
+          </div>
+        </div>
+        <div class="content-btn-action">
+          <button type="button" (click)="start()" [disabled]="disabled">&#9658;</button>
+          <button type="button" (click)="stop()">&#9724;</button>
+          <button type="button" (click)="reset()">&#8635;</button>
+        </div>
+      </div>
+      <!--<pre>{{rutina.ejercicios |filterByDay: diaSeleccionado |json}}</pre>-->
+      <ion-list  *ngFor="let r of rutina.ejercicios | filterByDay: diaSeleccionado">
+        <ion-grid>
+          <h4>Nombre: {{r.nombreEjercicio}}</h4>
+          <h3>Series: {{r.numeroSeries}}</h3>
+          <h3>Último peso:{{r.pesoMaximo}} </h3>
+          <ion-row>
+            <ion-col size="2">
+              <p>Repe</p>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input type="number"></ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input type="number"></ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input type="number"></ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input type="number"></ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="2">
+              <p> Kg</p>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input type="number"[(ngModel)]="peso" (keyup.enter)="guardarPesos()"></ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input type="number"[(ngModel)]="peso" (keyup.enter)="guardarPesos()"></ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input type="number"[(ngModel)]="peso" (keyup.enter)="guardarPesos()"></ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input type="number"[(ngModel)]="peso" (keyup.enter)="guardarPesos()"></ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-input type="number"[(ngModel)]="peso" (keyup.enter)="guardarPesos()"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        {{r.registroPesos |json}}
+    </ion-list>
+      <ion-button color="danger" (click)="showModal('')">Cerrar</ion-button>
     </ng-template>
+
     </ion-modal>
 
 

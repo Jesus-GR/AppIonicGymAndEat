@@ -1,3 +1,61 @@
+
+ion-modal{
+  padding: 0;
+  margin: 0;
+}
+
+.content{
+  margin-top: 50px;
+}
+.content-timer{
+  display: flex;
+  background-color: rgba($color: #2e2d2d, $alpha: 0.5);
+  border: #2FDF75 solid 2px;
+  border-radius: 15px 15px 0px 0px;
+  width: 80%;
+  height: 70px;
+  margin: auto;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.content-btn{
+  text-align: center;
+  margin-bottom: 15px;
+  button{
+    font-size: 1em ;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    border: none;
+    outline: inherit;
+    color: white;
+    background-color: #2FDF75;
+    margin: 2px;
+  }
+}
+.content-btn-action{
+  margin: auto;
+  border-radius: 0px 0px 15px 15px;
+  width: 80%;
+  padding-left: 4.5em;
+
+  margin-top: 5px;
+  padding-top: 4px;
+  background-color: rgba($color: #2e2d2d, $alpha: 0.5);
+  border: #2FDF75 solid 2px;
+
+  button{
+    color: white;
+    background-color: #2FDF75;
+    margin-left: 2px;
+    border-radius: 5px;
+    border: none;
+    outline: inherit;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+  }
+}
 .botones {
     display: flex;
     width: 100%;
@@ -5,4 +63,15 @@
     flex-direction: column;
     justify-content: space-around;
     align-content: center;
+}
+
+ion-grid{
+  width: 100%;
+  margin-top: 20px;
+
+
+}
+ion-row ion-col{
+  border: 1px solid #2FDF75;
+
 }

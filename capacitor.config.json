@@ -1,14 +1,8 @@
 {
-  "appId": "com.example.app",
+  "appId": "com.gymAndEa",
   "appName": "GymAndEat",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
-  "plugins": {
-  "SplashScreen": {
-  "launchShowDuration": 0
-  }
-  },
-  "cordova": {},
-  "linuxAndroidStudioPath": "/home/jguti/android-studio/bin/studio.sh"
+  "cordova": {}
   }

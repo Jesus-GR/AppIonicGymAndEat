@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/model/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
-
+//import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.page.html',
@@ -19,10 +20,12 @@ export class UsuarioPage implements OnInit {
   currentUserId: string;
   showModal: boolean;
   imagen = 'assets/blank-profile-picture-g37dc4bba4_1280.png';
+  photoPath: SafeResourceUrl;
   constructor(
     public router: Router,
     public usuarioService: UsuarioService,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private sanitizer: DomSanitizer) {
 
       this.currentUserId = this.authService.getCurrentUser().uid;
         }
@@ -37,6 +40,16 @@ export class UsuarioPage implements OnInit {
 
   }
 
+  /*async takePicture() {
+    const image = await Plugins.Camera.getPhoto({
+    quality: 60,
+    allowEditing: false,
+    resultType: CameraResultType.Uri,
+    source: CameraSource.Camera
+    });
+    this.photoPath = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.webPath));
+    }
+*/
   goToFood() {
     this.router.navigateByUrl('food');
   }

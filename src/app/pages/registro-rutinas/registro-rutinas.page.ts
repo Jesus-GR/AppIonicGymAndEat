@@ -27,7 +27,8 @@ export class RegistroRutinasPage implements OnInit {
 
   constructor(private rutinaService: RutinaService,
               private auth: AuthService,
-              private router: Router ) {
+              private router: Router,
+             ) {
 
    }
 
