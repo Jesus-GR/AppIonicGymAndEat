@@ -34,11 +34,17 @@ getRutinas(): Observable<Rutina[]> {
   }) as Observable<Rutina[]>;
 }
 
-/* Get a Rutina */
+/* Get a Rutina*/
 getRutina(id: string): Observable<Rutina> {
   return docData(doc(this.firestore,`usuario/${this.auth.getCurrentUser().uid}/rutinas/${id}`), {
     idField: "rutinaID"
   }) as Observable<Rutina>;
+}
+
+
+//Actualizar Rutina
+async updateRutina(rutina: Rutina){
+  await setDoc(doc(this.firestore, `usuario/${this.auth.getCurrentUser().uid}/rutinas/${rutina.rutinaID}`), rutina );
 }
 
 }

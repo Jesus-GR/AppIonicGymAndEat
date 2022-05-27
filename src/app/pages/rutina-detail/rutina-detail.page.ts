@@ -7,6 +7,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { resolve } from 'dns';
 import { Observable, of } from 'rxjs';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { FilterByDayPipe } from 'src/app/filter-by-day.pipe';
 import { Ejercicio } from 'src/app/model/ejercicio';
 import { Rutina } from 'src/app/model/rutina';
@@ -27,8 +28,14 @@ export class RutinaDetailPage implements OnInit {
   diaSeleccionado: string;
   esCargada = false;
   pesos: number[] = [];
-  peso: number;
+  pesoUno: number;
+  pesoDos: number;
+  pesoTres: number;
+  pesoCuatro: number;
+  pesoCinco: number;
+  pesoSeis: number;
 
+  arrayContador = new Array(8);
    hours = 0;
    minutes = 0;
    seconds = 0;
@@ -49,6 +56,8 @@ export class RutinaDetailPage implements OnInit {
     if (ID != null) {
       this.rutinaService.getRutina(ID).subscribe(data => {this.rutina = data; });
     }
+    console.log(this.arrayContador.length);
+    console.log(this.rutina.ejercicios.forEach(x => x.numeroSeries));
 }
 
   goToFood() {
@@ -157,5 +166,13 @@ export class RutinaDetailPage implements OnInit {
     this.minutes = 0;
     this.seconds = 0;
     this.stop();
+  }
+
+  guardarEjercicio(){
+    this.rutina.ejercicios.forEach( x => {
+       x.pesoMaximo = Math.max(...x.registroPesos);
+    });
+    this.rutinaService.updateRutina(this.rutina);
+    this.isModalOpen = !this.isModalOpen;
   }
 }

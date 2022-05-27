@@ -56,55 +56,29 @@
       <!--<pre>{{rutina.ejercicios |filterByDay: diaSeleccionado |json}}</pre>-->
     <cdk-virtual-scroll-viewport itemSize="56">
         <ion-list  *cdkVirtualFor="let r of rutina.ejercicios | filterByDay: diaSeleccionado">
-          <ion-grid>
+
+        <ion-grid>
             <h4>Nombre: {{r.nombreEjercicio}}</h4>
             <h3>Series: {{r.numeroSeries}}</h3>
             <h3>Último peso:{{r.pesoMaximo}} </h3>
             <ion-row>
-              <ion-col size="2">
+              <ion-col size="3">
                 <p>Repe</p>
+                <p>KG</p>
               </ion-col>
-              <ion-col size="2">
+              <ion-col size="3" *ngFor="let c of arrayContador; let i = index">
                 <ion-input type="number"></ion-input>
-              </ion-col>
-              <ion-col size="2">
-                <ion-input type="number"></ion-input>
-              </ion-col>
-              <ion-col size="2">
-                <ion-input type="number"></ion-input>
-              </ion-col>
-              <ion-col size="2">
-                <ion-input type="number"></ion-input>
-              </ion-col>
-              <ion-col size="2">
-                <ion-input type="number"></ion-input>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col size="2">
-                <p> Kg</p>
-              </ion-col>
-              <ion-col size="2">
-                <ion-input type="number" [(ngModel)]="peso" (keyUp.enter)="pesos.push(peso)"></ion-input>
-              </ion-col>
-              <ion-col size="2">
-                <ion-input type="number" [(ngModel)]="peso"></ion-input>
-              </ion-col>
-              <ion-col size="2">
-                <ion-input type="number" [(ngModel)]="peso"></ion-input>
-              </ion-col>
-              <ion-col size="2">
-                <ion-input type="number" [(ngModel)]="peso"></ion-input>
-              </ion-col>
-              <ion-col size="2">
-                <ion-input type="number" [(ngModel)]="peso"></ion-input>
+                <ion-input type="number" [(ngModel)]="r.registroPesos[i]"></ion-input>
               </ion-col>
             </ion-row>
           </ion-grid>
-          {{peso}}
+
       </ion-list>
+      Pesos {{rutina.ejercicios.registroPesos}}
+
+     <pre> {{rutina.ejercicios | filterByDay: diaSeleccionado |json}} </pre>
   </cdk-virtual-scroll-viewport>
-      <ion-button color="danger" (click)="showModal('')">Cerrar</ion-button>
+      <ion-button color="danger" (click)="guardarEjercicio()">Cerrar</ion-button>
     </ng-template>
 
     </ion-modal>

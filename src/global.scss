@@ -9,40 +9,52 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+
 /* Core CSS required for Ionic components to work properly */
+
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
+
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
 @import '~@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
+
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/float-elements.css";
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab:wght@400;900&display=swap');
+ion-content {
+    background-color: black;
+}
+
+ion-modal {
+    background-color: black;
+}
 
 ion-title {
-  text-align: center;
-  font-family: 'Bebas Neue', cursive;
-  font-size: 2em;
-  background-color: #2FDF75;
-  }
-ion-menu{
-  background-color: #2FDF75;
-  font-family: 'Bebas Neue', cursive;
-}
-ion-menu-button{
-  background-color: #2FDF75;
-  height: 43px;
-}
-ion-input{
-  text-align: center;
-  font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2em;
+    background-color: #2FDF75;
 }
 
+ion-menu {
+    background-color: #2FDF75;
+    font-family: 'Bebas Neue', cursive;
+}
+
+ion-menu-button {
+    background-color: #2FDF75;
+    height: 43px;
+}
+
+ion-input {
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+}

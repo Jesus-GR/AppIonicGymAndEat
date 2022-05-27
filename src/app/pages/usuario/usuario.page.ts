@@ -15,7 +15,18 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./usuario.page.scss'],
 })
 export class UsuarioPage implements OnInit {
-  user: Usuario = {};
+  user: Usuario = {
+    uid: '',
+    email: '',
+    password: '',
+    nombre: '',
+    edad: '',
+    peso: 0,
+    altura: 0,
+    imc: 0,
+    image: '',
+    pesoMaximo: 0,
+  };
   users: Usuario[] = [];
   currentUserId: string;
   showModal: boolean;

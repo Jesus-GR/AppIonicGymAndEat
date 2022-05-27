@@ -15,7 +15,16 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class RegistroPage implements OnInit {
   usuario: Usuario = {
-    uid: ''
+    uid: '',
+    email: '',
+    password: '',
+    nombre: '',
+    edad: '',
+    peso: 0,
+    altura: 0,
+    imc: 0,
+    image: '',
+    pesoMaximo: 0
   };
 
   constructor(public router: Router,

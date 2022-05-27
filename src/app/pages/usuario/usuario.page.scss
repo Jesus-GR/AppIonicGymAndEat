@@ -1,35 +1,35 @@
-
-#userPicture{
-  padding: 0;
-  margin: 0;
-  background-image: url("../../../assets/victorGris.jpg");
-  background-size: cover;
-  background-position: center;
-}
-#userElements{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: baseline;
-  flex-direction: column;
+#userPicture {
+    padding: 0;
+    margin: 0;
+    background-image: url("../../../assets/victorGris.jpg");
+    height: 50%;
+    background-size: cover;
+    background-position: center;
 }
 
-ion-avatar{
-  width: 80px;
-  height: 80px;
-  margin-top: 30px;
+#userElements {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    flex-direction: column;
 }
 
-.progressBar{
-  width: 80%;
-  margin: auto;
-  background-color: wheat;
-  margin-bottom: 20px;
-
+ion-avatar {
+    width: 80px;
+    height: 80px;
+    margin-top: 30px;
 }
 
-h6{
-  margin: 0;
-  padding: 0;
-  text-align: center;
+.progressBar {
+    width: 80%;
+    margin: auto;
+    background-color: wheat;
+    margin-bottom: 20px;
+}
+
+h6 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
