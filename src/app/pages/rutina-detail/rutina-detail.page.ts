@@ -26,6 +26,7 @@ export class RutinaDetailPage implements OnInit {
   diasSemana: string[] = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
   diaSeleccionado: string;
   esCargada = false;
+  pesos: number[] = [];
   peso: number;
 
    hours = 0;
@@ -62,9 +63,6 @@ export class RutinaDetailPage implements OnInit {
     this.isModalOpen = !this.isModalOpen;
   }
 
-  guardarPesos(){
-    this.rutina.ejercicios.forEach(p => p.registroPesos.push(this.peso));
-  }
 
 
   hayRutinEnDia(dia: string): boolean{

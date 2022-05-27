@@ -20,6 +20,7 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { FilterByDayPipe } from './filter-by-day.pipe';
 import { FirstLetterPipe } from './pipes/first-letter.pipe';
 
+
 @NgModule({
   declarations: [AppComponent, MenuComponent],
   entryComponents: [],
@@ -38,7 +39,7 @@ import { FirstLetterPipe } from './pipes/first-letter.pipe';
     provideAuth(() => getAuth()), provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },FatSecretService,ScreenTrackingService,UserTrackingService],
   bootstrap: [AppComponent],

@@ -8,13 +8,15 @@ import { RutinaDetailPageRoutingModule } from './rutina-detail-routing.module';
 
 import { RutinaDetailPage } from './rutina-detail.page';
 import { FilterByDayPipe } from 'src/app/filter-by-day.pipe';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RutinaDetailPageRoutingModule
+    RutinaDetailPageRoutingModule,
+    ScrollingModule
   ],
   declarations: [RutinaDetailPage, FilterByDayPipe]
 })

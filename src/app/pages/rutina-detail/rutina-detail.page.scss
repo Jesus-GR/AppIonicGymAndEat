@@ -1,7 +1,13 @@
 
-ion-modal{
+ion-modal ion-list{
   padding: 0;
   margin: 0;
+}
+
+cdk-virtual-scroll-viewport {
+  margin-top: 10px;
+  height: 100%;
+  width: 100%;
 }
 
 .content{
