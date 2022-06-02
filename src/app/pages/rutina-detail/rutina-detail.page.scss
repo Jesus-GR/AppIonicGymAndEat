@@ -3,10 +3,6 @@ ion-modal ion-list {
     margin: 0;
 }
 
-ion-modal {
-    width: 500px;
-}
-
 ion-row {
     display: flex;
     width: 150%;
@@ -98,4 +94,16 @@ ion-row ion-col {
 
 ion-input {
     border: 1px solid #2FDF75;
+}
+
+
+ion-radio-group{
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.radioItem{
+  width: 100%;
 }

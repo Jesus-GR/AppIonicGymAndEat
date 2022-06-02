@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/type-annotation-spacing */
+/* eslint-disable prefer-const */
 /* eslint-disable curly */
 /* eslint-disable @angular-eslint/use-lifecycle-interface */
 /* eslint-disable eqeqeq */
@@ -34,6 +36,7 @@ export class RutinaDetailPage implements OnInit {
   pesoCuatro: number;
   pesoCinco: number;
   pesoSeis: number;
+  editMode = 'view';
 
   arrayContador = new Array(8);
    hours = 0;
@@ -56,8 +59,6 @@ export class RutinaDetailPage implements OnInit {
     if (ID != null) {
       this.rutinaService.getRutina(ID).subscribe(data => {this.rutina = data; });
     }
-    console.log(this.arrayContador.length);
-    console.log(this.rutina.ejercicios.forEach(x => x.numeroSeries));
 }
 
   goToFood() {
@@ -70,6 +71,7 @@ export class RutinaDetailPage implements OnInit {
   showModal(d: string) {
     this.diaSeleccionado = d;
     this.isModalOpen = !this.isModalOpen;
+    this.rutina.ejercicios.forEach(x => x.registroPesos = []);
   }
 
 
@@ -169,10 +171,14 @@ export class RutinaDetailPage implements OnInit {
   }
 
   guardarEjercicio(){
-    this.rutina.ejercicios.forEach( x => {
-       x.pesoMaximo = Math.max(...x.registroPesos);
-    });
-    this.rutinaService.updateRutina(this.rutina);
-    this.isModalOpen = !this.isModalOpen;
+     this.rutina.ejercicios.find(x => {
+       if(x.pesoMaximo < Math.max(...x.registroPesos) && x.pesoMaximo != 0){
+        x.pesoMaximo = Math.max(...x.registroPesos);
+        this.rutinaService.updateRutina(this.rutina);
+        this.isModalOpen = !this.isModalOpen;
+       }else{
+        this.isModalOpen = !this.isModalOpen;
+       }
+     });
   }
 }

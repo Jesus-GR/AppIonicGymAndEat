@@ -1,8 +1,0 @@
-{
-  "appId": "com.gymAndEa",
-  "appName": "GymAndEat",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www",
-  "cordova": {}
-  }

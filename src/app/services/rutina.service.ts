@@ -47,4 +47,9 @@ async updateRutina(rutina: Rutina){
   await setDoc(doc(this.firestore, `usuario/${this.auth.getCurrentUser().uid}/rutinas/${rutina.rutinaID}`), rutina );
 }
 
+async deleteRutina(id: string){
+  const docRef = doc(this.firestore,`usuario/${this.auth.getCurrentUser().uid}/rutinas/${id}`);
+  await deleteDoc(docRef);
+}
+
 }

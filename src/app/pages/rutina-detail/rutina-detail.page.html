@@ -30,6 +30,25 @@
 
     <ion-modal [isOpen]="isModalOpen">
     <ng-template>
+      <ion-list>
+        <ion-radio-group [(ngModel)]="editMode">
+
+          <ion-list-header>
+            <ion-label>Mode</ion-label>
+          </ion-list-header>
+
+          <ion-item class="radioItem">
+            <ion-label><ion-icon name="create-outline"></ion-icon></ion-label>
+            <ion-radio slot="start" value="edit"></ion-radio>
+          </ion-item>
+
+          <ion-item class="radioItem">
+            <ion-label><ion-icon name="eye-outline"></ion-icon></ion-label>
+            <ion-radio slot="start" value="view"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
       <div class="content">
         <div class="content-timer">
           <div class="content-m">
@@ -53,14 +72,18 @@
           <button type="button" (click)="reset()">&#8635;</button>
         </div>
       </div>
-      <!--<pre>{{rutina.ejercicios |filterByDay: diaSeleccionado |json}}</pre>-->
     <cdk-virtual-scroll-viewport itemSize="56">
         <ion-list  *cdkVirtualFor="let r of rutina.ejercicios | filterByDay: diaSeleccionado">
 
         <ion-grid>
-            <h4>Nombre: {{r.nombreEjercicio}}</h4>
-            <h3>Series: {{r.numeroSeries}}</h3>
-            <h3>Último peso:{{r.pesoMaximo}} </h3>
+            <h4 *ngIf="editMode === 'view'">Nombre: {{r.nombreEjercicio}}</h4>
+            <ion-input *ngIf="editMode === 'edit'" [(ngModel)]="r.nombreEjercicio">Nombre:</ion-input>
+            <h3 *ngIf="editMode === 'view'">Series: {{r.numeroSeries}}</h3>
+            <ion-input *ngIf="editMode === 'edit'" [(ngModel)]="r.numeroSeries">Series:</ion-input>
+            <h3 *ngIf="editMode === 'view'">Repeticiones: {{r.numeroRepeticiones}}</h3>
+            <ion-input *ngIf="editMode === 'edit'" [(ngModel)]="r.numeroRepeticiones">Repeticiones:</ion-input>
+            <h3 *ngIf="editMode === 'view'">Último peso: {{r.pesoMaximo}} </h3>
+            <ion-input *ngIf="editMode === 'edit'" [(ngModel)]="r.pesoMaximo">último peso:</ion-input>
             <ion-row>
               <ion-col size="3">
                 <p>Repe</p>
@@ -72,16 +95,9 @@
               </ion-col>
             </ion-row>
           </ion-grid>
-
       </ion-list>
-      Pesos {{rutina.ejercicios.registroPesos}}
-
-     <pre> {{rutina.ejercicios | filterByDay: diaSeleccionado |json}} </pre>
   </cdk-virtual-scroll-viewport>
       <ion-button color="danger" (click)="guardarEjercicio()">Cerrar</ion-button>
     </ng-template>
-
     </ion-modal>
-
-
 </ion-content>

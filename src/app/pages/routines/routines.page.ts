@@ -29,5 +29,8 @@ export class RoutinesPage implements OnInit {
     this.router.navigateByUrl('/registro-rutinas');
   }
 
+  deleteRoutines(id: string){
+    this.rutinaService.deleteRutina(id);
+  }
 
 }

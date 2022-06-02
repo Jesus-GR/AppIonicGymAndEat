@@ -17,10 +17,11 @@
   </ion-button>
 
 
-  <ion-list *ngFor="let r of rutinas">
+  <ion-list class="listaRutinas" *ngFor="let r of rutinas">
     <ion-item routerLink="/rutina-detail/{{r.rutinaID}}">
-    {{r.nombreRutina}}
+      {{r.nombreRutina}}
     </ion-item>
+    <a href=""><ion-icon name="trash-outline" slot="end"></ion-icon></a>
   </ion-list>
 </ion-content>
 
