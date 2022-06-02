@@ -21,7 +21,7 @@
     <ion-item routerLink="/rutina-detail/{{r.rutinaID}}">
       {{r.nombreRutina}}
     </ion-item>
-    <a href=""><ion-icon name="trash-outline" slot="end"></ion-icon></a>
+    <button class="deleteButton" href=""><ion-icon name="trash-outline" slot="end" (click)="deleteRoutines(r.rutinaID)" style="font-size: 1.5em ;"></ion-icon></button>
   </ion-list>
 </ion-content>
 
