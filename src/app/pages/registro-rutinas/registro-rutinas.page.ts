@@ -58,4 +58,8 @@ export class RegistroRutinasPage implements OnInit {
 
 
   }
+
+  goToRoutines(){
+    this.router.navigateByUrl('/routines');
+  }
 }

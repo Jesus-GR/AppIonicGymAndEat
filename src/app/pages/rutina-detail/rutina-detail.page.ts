@@ -25,7 +25,7 @@ export class RutinaDetailPage implements OnInit {
     ejercicios: []
   };
   arrayEjercicios: any[] = [];
-  isModalOpen: boolean;
+  openCloseModal: boolean;
   diasSemana: string[] = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
   diaSeleccionado: string;
   esCargada = false;
@@ -70,7 +70,7 @@ export class RutinaDetailPage implements OnInit {
 
   showModal(d: string) {
     this.diaSeleccionado = d;
-    this.isModalOpen = !this.isModalOpen;
+    this.openCloseModal = !this.openCloseModal;
     this.rutina.ejercicios.forEach(x => x.registroPesos = []);
   }
 
@@ -175,9 +175,10 @@ export class RutinaDetailPage implements OnInit {
        if(x.pesoMaximo < Math.max(...x.registroPesos) && x.pesoMaximo != 0){
         x.pesoMaximo = Math.max(...x.registroPesos);
         this.rutinaService.updateRutina(this.rutina);
-        this.isModalOpen = !this.isModalOpen;
+        this.openCloseModal = false;
        }else{
-        this.isModalOpen = !this.isModalOpen;
+         console.log(this.openCloseModal);
+        this.openCloseModal =false;
        }
      });
   }

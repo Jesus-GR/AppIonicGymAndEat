@@ -18,3 +18,26 @@ ion-icon{
 .deleteButton{
   background: none;
 }
+
+ion-list{
+  background-color: var(--background);
+}
+
+ion-item{
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
+}
+
+.addRoutines{
+  width: 200px;
+  height: 60px;
+  margin-left: 20%;
+  text-align: center;
+  color: black;
+  border: none;
+  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
+  border-radius: 15px;
+  border: 1px grey solid;
+  background-color:var(--background);
+}

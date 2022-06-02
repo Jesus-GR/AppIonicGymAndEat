@@ -48,7 +48,7 @@ public getUser(id: string): Observable<Usuario>{
 
 //Eliminar producto
 async deleteUser(uid: string){
-  const docRef = doc(this.firestore,`usuarios/${uid}`);
+  const docRef = doc(this.firestore,`usuario/${uid}`);
   await deleteDoc(docRef);
 }
 

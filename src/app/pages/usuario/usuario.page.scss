@@ -5,6 +5,7 @@
     height: 50%;
     background-size: cover;
     background-position: center;
+    color: white;
 }
 
 #userElements {
@@ -13,12 +14,14 @@
     align-items: center;
     justify-content: baseline;
     flex-direction: column;
+    box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
 }
 
 ion-avatar {
     width: 80px;
     height: 80px;
     margin-top: 30px;
+    box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
 }
 
 .progressBar {
@@ -32,4 +35,23 @@ h6 {
     margin: 0;
     padding: 0;
     text-align: center;
+}
+
+ion-tab-bar{
+  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
+}
+ion-tab-button{
+  background-color: var(--background);
+  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
+}
+
+ion-tab-button ion-icon{
+  border-radius: 50%;
+  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
+}
+
+.iconoMenu{
+  border-radius: 50%;
+  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
+  margin-right: 20px;
 }

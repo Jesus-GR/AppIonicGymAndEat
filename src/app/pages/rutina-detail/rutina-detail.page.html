@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="end">
+    <ion-buttons class="iconoMenu" slot="end">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
     <ion-title>
@@ -13,22 +13,22 @@
 <ion-content>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button  style="background-color: rgb(0, 225, 255);"(click)="goToFood()">
+      <ion-tab-button (click)="goToFood()">
         <ion-icon name="restaurant-outline" color="dark"></ion-icon>
         <ion-label>Food</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button  style="background-color: rgb(0, 225, 255);" (click)="goToGym()">
+      <ion-tab-button (click)="goToGym()">
         <ion-icon name="barbell-outline" color="dark"></ion-icon>
         <ion-label>Gym</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-    <ion-list  *ngFor="let d of diasSemana">
+    <ion-list class="listDays"  *ngFor="let d of diasSemana">
       <ion-button [disabled]="!hayRutinEnDia(d)" (click)="showModal(d)">{{d}}</ion-button>
     </ion-list>
 
-    <ion-modal [isOpen]="isModalOpen">
+    <ion-modal [isOpen]="openCloseModal">
     <ng-template>
       <ion-list>
         <ion-radio-group [(ngModel)]="editMode">
@@ -39,12 +39,12 @@
 
           <ion-item class="radioItem">
             <ion-label><ion-icon name="create-outline"></ion-icon></ion-label>
-            <ion-radio slot="start" value="edit"></ion-radio>
+            <ion-radio  slot="start" value="edit" color="danger"></ion-radio>
           </ion-item>
 
           <ion-item class="radioItem">
             <ion-label><ion-icon name="eye-outline"></ion-icon></ion-label>
-            <ion-radio slot="start" value="view"></ion-radio>
+            <ion-radio slot="start" value="view" color="danger"></ion-radio>
           </ion-item>
         </ion-radio-group>
       </ion-list>
@@ -73,9 +73,9 @@
         </div>
       </div>
     <cdk-virtual-scroll-viewport itemSize="56">
-        <ion-list  *cdkVirtualFor="let r of rutina.ejercicios | filterByDay: diaSeleccionado">
+        <ion-list class="listTemplate" *cdkVirtualFor="let r of rutina.ejercicios | filterByDay: diaSeleccionado">
 
-        <ion-grid>
+        <ion-grid >
             <h4 *ngIf="editMode === 'view'">Nombre: {{r.nombreEjercicio}}</h4>
             <ion-input *ngIf="editMode === 'edit'" [(ngModel)]="r.nombreEjercicio">Nombre:</ion-input>
             <h3 *ngIf="editMode === 'view'">Series: {{r.numeroSeries}}</h3>
@@ -85,7 +85,7 @@
             <h3 *ngIf="editMode === 'view'">Último peso: {{r.pesoMaximo}} </h3>
             <ion-input *ngIf="editMode === 'edit'" [(ngModel)]="r.pesoMaximo">último peso:</ion-input>
             <ion-row>
-              <ion-col size="3">
+              <ion-col class="repeKgColum" size="3">
                 <p>Repe</p>
                 <p>KG</p>
               </ion-col>
