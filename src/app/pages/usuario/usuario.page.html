@@ -4,8 +4,8 @@
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      <ion-icon  name="blank"></ion-icon>
-     Usuario
+      <ion-icon name="blank"></ion-icon>
+      Usuario
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,7 +18,7 @@
         <ion-label>Food</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button  (click)="goToGym()">
+      <ion-tab-button (click)="goToGym()">
         <ion-icon name="barbell-outline" color="dark"></ion-icon>
         <ion-label>Gym</ion-label>
       </ion-tab-button>
@@ -27,16 +27,49 @@
   <div id="userPicture">
     <div id="userElements">
       <ion-avatar>
-        <img [src]="user.image">
+        <img [src]="user.image" />
+        <ion-button
+          (click)="openCloseModal()"
+          style="height: 20px; margin: auto"
+          >Tomar foto</ion-button
+        >
       </ion-avatar>
       <h1>{{user.nombre}}</h1>
     </div>
-      <h6>Altura: {{user.altura}}</h6>
-      <ion-progress-bar class="progressBar" color="primary" [value]="user.altura/250"></ion-progress-bar>
-      <h6>Peso {{user.peso}}</h6>
-       <ion-progress-bar class="progressBar"  color="danger" [value]="user.peso/100"></ion-progress-bar>
-      <h6>I.M.C: {{user.imc}}</h6>
-       <ion-progress-bar class="progressBar" color="success" [value]="user.imc/100"></ion-progress-bar>
+    <h6>Altura: {{user.altura}}</h6>
+    <ion-progress-bar
+      class="progressBar"
+      color="primary"
+      [value]="user.altura/250"
+    ></ion-progress-bar>
+    <h6>Peso {{user.peso}}</h6>
+    <ion-progress-bar
+      class="progressBar"
+      color="danger"
+      [value]="user.peso/100"
+    ></ion-progress-bar>
+    <h6>I.M.C: {{user.imc}}</h6>
+    <ion-progress-bar
+      class="progressBar"
+      color="success"
+      [value]="user.imc/100"
+    ></ion-progress-bar>
   </div>
 
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-content>
+        <img *ngIf="photoPath" [src]="photoPath" />
+        <p *ngIf="!photoPath" class="ion-padding">
+          No has sacado ninguna foto ¿a qué esperas?
+        </p>
+        <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+          <ion-fab-button (click)="takePicture()">
+            <ion-icon name="camera"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-content>
+      <ion-button (click)="openCloseModal()">Cerrar</ion-button>
+    </ng-template>
+  </ion-modal>
 </ion-content>

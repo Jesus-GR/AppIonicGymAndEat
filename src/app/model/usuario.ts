@@ -1,3 +1,4 @@
+import { SafeResourceUrl } from '@angular/platform-browser';
 import { Rutina } from './rutina';
 
 export interface Usuario {
@@ -9,6 +10,6 @@ export interface Usuario {
     peso: number;
     altura: number;
     imc: number;
-    image: string;
+    image: SafeResourceUrl;
     pesoMaximo: number;
 }

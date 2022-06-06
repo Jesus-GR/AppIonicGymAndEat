@@ -1,3 +1,4 @@
+/* eslint-disable id-blacklist */
 /* eslint-disable max-len */
 /* eslint-disable eqeqeq */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
@@ -7,14 +8,18 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/model/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
-//import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Plugins } from '@capacitor/core';
+import { CameraService } from 'src/app/services/camera.service';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.page.html',
   styleUrls: ['./usuario.page.scss'],
 })
 export class UsuarioPage implements OnInit {
+  photoPath: SafeResourceUrl;
+
   user: Usuario = {
     uid: '',
     email: '',
@@ -31,44 +36,47 @@ export class UsuarioPage implements OnInit {
   currentUserId: string;
   showModal: boolean;
   imagen = 'assets/blank-profile-picture-g37dc4bba4_1280.png';
-  photoPath: SafeResourceUrl;
+  isModalOpen: boolean;
   constructor(
     public router: Router,
     public usuarioService: UsuarioService,
     private authService: AuthService,
-    private sanitizer: DomSanitizer) {
+    private cameraService: CameraService) {
 
-      this.currentUserId = this.authService.getCurrentUser().uid;
-        }
+    this.currentUserId = this.authService.getCurrentUser().uid;
+  }
 
   ngOnInit() {
-    this.usuarioService.getUsers().subscribe(data => {this.users = data;
-       this.user = this.users[0];
-       if(this.user.image != ''){
-         this.user.image = this.imagen;
-       }
-      });
+    this.usuarioService.getUsers().subscribe(data => {
+      this.users = data;
+      this.user = this.users[0];
+      if (this.user.image != '') {
+        this.user.image = this.imagen;
+      }
+    });
 
   }
 
-  /*async takePicture() {
-    const image = await Plugins.Camera.getPhoto({
-    quality: 60,
-    allowEditing: false,
-    resultType: CameraResultType.Uri,
-    source: CameraSource.Camera
-    });
-    this.photoPath = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.webPath));
-    }
-*/
   goToFood() {
     this.router.navigateByUrl('food');
   }
-  goToGym(){
+  goToGym() {
     this.router.navigateByUrl('routines');
   }
-  logout(){
+  logout() {
     this.authService.logout();
     this.router.navigateByUrl('welcome');
   }
+
+  openCloseModal() {
+    this.isModalOpen = !this.isModalOpen;
+  }
+
+  async takePicture() {
+    const image = await this.cameraService.takePicture();
+   this.photoPath  = image;
+   this.user.image = image;
+
+  }
+
 }
