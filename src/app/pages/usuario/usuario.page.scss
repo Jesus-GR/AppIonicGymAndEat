@@ -55,3 +55,26 @@ ion-tab-button ion-icon{
   box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
   margin-right: 20px;
 }
+
+.cameraIcon{
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.5em;
+
+}
+
+.cameraButtonModal{
+  margin-left: -30PX;
+  color: black;
+}
+ion-modal{
+  padding: 25px 0px 10px 0px;
+}
+
+.cameraButtonModal ion-icon{
+  color: black;
+}
+
+ion-button{
+  color: black;
+}

@@ -28,11 +28,7 @@
     <div id="userElements">
       <ion-avatar>
         <img [src]="user.image" />
-        <ion-button
-          (click)="openCloseModal()"
-          style="height: 20px; margin: auto"
-          >Tomar foto</ion-button
-        >
+        <ion-icon  class="cameraIcon" (click)="openCloseModal()" name="camera-outline"></ion-icon>
       </ion-avatar>
       <h1>{{user.nombre}}</h1>
     </div>
@@ -63,7 +59,7 @@
         <p *ngIf="!photoPath" class="ion-padding">
           No has sacado ninguna foto ¿a qué esperas?
         </p>
-        <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab class="cameraButtonModal" vertical="bottom" horizontal="center" slot="fixed">
           <ion-fab-button (click)="takePicture()">
             <ion-icon name="camera"></ion-icon>
           </ion-fab-button>

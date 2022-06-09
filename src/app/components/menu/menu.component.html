@@ -17,7 +17,7 @@
         <ion-label slot="end">Perfil</ion-label>
       </ion-item>
 
-      <ion-item *ngIf="authService.getCurrentUser()" (click)="mostrarPopover()">
+      <ion-item class="borrarUsuario" *ngIf="authService.getCurrentUser()" (click)="mostrarPopover()">
         <ion-icon name="trash-outline" slot="start"></ion-icon>
         <ion-label slot="end">Borrar usuario</ion-label>
       </ion-item>

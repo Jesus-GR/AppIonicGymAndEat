@@ -12,6 +12,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Plugins } from '@capacitor/core';
 import { CameraService } from 'src/app/services/camera.service';
+import { UploadService } from 'src/app/services/upload.service';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.page.html',
@@ -41,7 +42,8 @@ export class UsuarioPage implements OnInit {
     public router: Router,
     public usuarioService: UsuarioService,
     private authService: AuthService,
-    private cameraService: CameraService) {
+    private cameraService: CameraService,
+    private upload: UploadService) {
 
     this.currentUserId = this.authService.getCurrentUser().uid;
   }
@@ -76,6 +78,10 @@ export class UsuarioPage implements OnInit {
     const image = await this.cameraService.takePicture();
    this.photoPath  = image;
    this.user.image = image;
+   console.log(this.user.image);
+   console.log(this.photoPath);
+
+   this.upload.uploadFile(this.photoPath);
 
   }
 
