@@ -10,6 +10,6 @@ export interface Usuario {
     peso: number;
     altura: number;
     imc: number;
-    image: SafeResourceUrl;
+    image: string;
     pesoMaximo: number;
 }

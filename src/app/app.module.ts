@@ -17,11 +17,10 @@ import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MenuComponent } from './components/menu/menu.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-//import{AngularFireAuthModule} from '@angular/fire/auth';
 import { FilterByDayPipe } from './filter-by-day.pipe';
 import { FirstLetterPipe } from './pipes/first-letter.pipe';
-
-
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireModule } from '@angular/fire/compat';
 
 
 @NgModule({
@@ -30,6 +29,8 @@ import { FirstLetterPipe } from './pipes/first-letter.pipe';
   imports: [
     BrowserModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
     ReactiveFormsModule,
     IonicModule.forRoot({
       rippleEffect: false,
@@ -43,6 +44,8 @@ import { FirstLetterPipe } from './pipes/first-letter.pipe';
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
+    AngularFireStorageModule,
+    AngularFireModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },FatSecretService,ScreenTrackingService,UserTrackingService],
   bootstrap: [AppComponent],

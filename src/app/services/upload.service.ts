@@ -5,6 +5,7 @@ import {
   getDownloadURL,
   getStorage,
   ref,
+  uploadBytes,
   uploadBytesResumable,
   uploadString,
 } from 'firebase/storage';
@@ -12,20 +13,24 @@ import {
 const firebaseApp = getApp();
 const storage = getStorage(firebaseApp, 'gs://gymandeat-f143b.appspot.com');
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class UploadService implements OnInit {
+  files = [];
+  uploadProgress = 0;
   constructor() {}
 
   ngOnInit(): void {}
 
-  async uploadFile(file: any): Promise<any> {
+ /* async uploadFile(file: any, nombre: string): Promise<any> {
+    const imageRef = ref(storage,'dieta-equilibrada.png');
+    const imageUploadsRef = ref(storage, `uploads/${nombre}.jpg`);
     const metadata = {
       contentType: 'image/jpeg',
     };
-    const storageRef = ref(storage, 'uploads/' + file);
-    const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+    const uploadTask = uploadBytes(imageUploadsRef, file, metadata);
     uploadTask.on(
       'state_changed',
       (snapshot) => {
@@ -57,7 +62,8 @@ export class UploadService implements OnInit {
         });
       }
     );
-  }
+  }*/
+
 
 
   async downloadFile(nombre: string){

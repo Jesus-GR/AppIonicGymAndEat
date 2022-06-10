@@ -58,7 +58,7 @@ async deleteUser(uid: string){
 
 //Actualizar usuario
 async updateUser(usuario: Usuario){
-  await setDoc(doc(this.firestore, `usuario/${this.auth.getCurrentUser().uid}/infoUser/${usuario}`), {idField: 'uid'});
+  await setDoc(doc(this.firestore, `usuario/${this.auth.getCurrentUser().uid}/infoUser/${usuario.uid}`), usuario);
 }
 
  /*

@@ -8,11 +8,10 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/model/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Plugins } from '@capacitor/core';
 import { CameraService } from 'src/app/services/camera.service';
 import { UploadService } from 'src/app/services/upload.service';
+import { Photo } from 'src/app/model/photo';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.page.html',
@@ -20,7 +19,9 @@ import { UploadService } from 'src/app/services/upload.service';
 })
 export class UsuarioPage implements OnInit {
   photoPath: SafeResourceUrl;
-
+  photo: Photo;
+  image: any;
+  select = false;
   user: Usuario = {
     uid: '',
     email: '',
@@ -43,7 +44,7 @@ export class UsuarioPage implements OnInit {
     public usuarioService: UsuarioService,
     private authService: AuthService,
     private cameraService: CameraService,
-    private upload: UploadService) {
+    ) {
 
     this.currentUserId = this.authService.getCurrentUser().uid;
   }
@@ -52,7 +53,7 @@ export class UsuarioPage implements OnInit {
     this.usuarioService.getUsers().subscribe(data => {
       this.users = data;
       this.user = this.users[0];
-      if (this.user.image != '') {
+      if (this.user.image == '') {
         this.user.image = this.imagen;
       }
     });
@@ -74,15 +75,21 @@ export class UsuarioPage implements OnInit {
     this.isModalOpen = !this.isModalOpen;
   }
 
-  async takePicture() {
-    const image = await this.cameraService.takePicture();
-   this.photoPath  = image;
-   this.user.image = image;
-   console.log(this.user.image);
-   console.log(this.photoPath);
+  async browsePhoto() {
+    const path = 'uploads/';
+    this.image = await this.cameraService.takePicture();
+    const res = await this.cameraService.uploadFile(this.image, path);
+    this.image = res;
+    this.user.image = res;
+    console.log(res);
 
-   this.upload.uploadFile(this.photoPath);
+    this.usuarioService.updateUser(this.user);
+  }
 
+  addPhoto() {
+    this.photo.formato = this.image;
+    this.cameraService.addPhoto(this.photo);
+    this.select = false;
   }
 
 }
