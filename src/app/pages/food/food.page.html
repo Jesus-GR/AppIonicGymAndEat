@@ -10,7 +10,87 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="goToFavs()">
+        <ion-icon name="star-outline" color="dark"></ion-icon>
+        <ion-label>Favs</ion-label>
+      </ion-tab-button>
 
-hola
+      <ion-tab-button (click)="goToUser()">
+        <ion-icon name="person" color="dark"></ion-icon>
+        <ion-label>User</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <ion-searchbar  [(ngModel)]="query" (keyup)="obtenerDatos()"></ion-searchbar>
+
+ <ion-grid *ngIf="food.name !== ''">
+  <ion-row>
+    <ion-col class="firstTitle" size="6">
+      <h2>Calorías:</h2>
+    </ion-col>
+    <ion-col class="col__data--firstData" size="3">
+      <h6>{{food.calories}}</h6>
+    </ion-col>
+    <ion-col class="col__button" size="3">
+      <a (click)="guardarEnFavs(food)"><ion-icon class="col__button--fav" name="star-outline"></ion-icon></a>
+    </ion-col>
+    <ion-col class="col__title"  size="8">
+      <h5>Grasas:</h5>
+    </ion-col>
+    <ion-col class="col__data"  size="3">
+      <h5>{{food.fat_total_g}}</h5>
+    </ion-col>
+    <ion-col class="col__title"  size="8">
+      <h5>Grasas saturadas:</h5>
+    </ion-col>
+    <ion-col class="col__data"  size="3">
+      <h5>{{food.fat_saturated_g}}</h5>
+    </ion-col>
+    <ion-col class="col__title"  size="8">
+      <h5>Proteínas:</h5>
+    </ion-col>
+    <ion-col class="col__data"  size="3">
+      <h5>{{food.protein_g}}</h5>
+    </ion-col>
+    <ion-col class="col__title"  size="8">
+      <h5>Sodio:</h5>
+    </ion-col>
+    <ion-col class="col__data"  size="3">
+      <h5>{{food.sodium_mg}}</h5>
+    </ion-col>
+    <ion-col class="col__title"  size="8">
+      <h5>Potasio:</h5>
+    </ion-col>
+    <ion-col class="col__data"  size="3">
+      <h5>{{food.potassium_mg}}</h5>
+    </ion-col>
+    <ion-col class="col__title"  size="8">
+      <h5>Colesterol:</h5>
+    </ion-col>
+    <ion-col class="col__data"  size="3">
+      <h5>{{food.cholesterol_mg}}</h5>
+    </ion-col>
+    <ion-col class="col__title"  size="8">
+      <h5>Carbohidratos:</h5>
+    </ion-col>
+    <ion-col class="col__data"  size="3">
+      <h5>{{food.carbohydrates_total_g}}</h5>
+    </ion-col>
+    <ion-col class="col__title"  size="8">
+      <h5>Fibra:</h5>
+    </ion-col>
+    <ion-col class="col__data"  size="3">
+      <h5>{{food.fiber_g}}</h5>
+    </ion-col>
+    <ion-col class="col__title"  size="8">
+      <h5>Azucar:</h5>
+    </ion-col>
+    <ion-col class="col__data"  size="3">
+      <h5>{{food.sugar_g}}</h5>
+    </ion-col>
+  </ion-row>
+ </ion-grid>
 </ion-content>
 

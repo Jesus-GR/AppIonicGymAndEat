@@ -27,7 +27,7 @@
   <div id="userPicture">
     <div id="userElements">
       <ion-avatar>
-        <img [src]="user.image" />
+        <img class="imageProfile" [src]="user.image" />
         <ion-icon  class="cameraIcon" (click)="openCloseModal()" name="camera-outline"></ion-icon>
       </ion-avatar>
       <h1>{{user.nombre}}</h1>
@@ -55,7 +55,7 @@
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <ion-content>
-        <img *ngIf="photoPath" [src]="photoPath" />
+        <img *ngIf="image" [src]="image" />
         <p *ngIf="!photoPath" class="ion-padding">
           No has sacado ninguna foto ¿a qué esperas?
         </p>

@@ -59,9 +59,6 @@ console.log('Confirm Cancel: blah');
     await alert.present();
   }
 
-  guardarFavorito(fav: Food){
-    this.foodService.saveFav(fav);
-  }
 
   goToFav(){
     this.router.navigateByUrl('fav');

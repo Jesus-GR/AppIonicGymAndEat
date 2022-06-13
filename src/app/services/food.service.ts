@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable no-var */
 /* eslint-disable @typescript-eslint/prefer-for-of */
 import { Injectable, OnInit } from '@angular/core';
 import { Food } from '../model/food';
@@ -5,16 +9,18 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Capacitor } from '@capacitor/core';
 import { Storage } from '@capacitor/storage';
+import { FatSecret } from '../model/fat-secret';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodService {
-  favorites: Food[] = [];
+  favorites: FatSecret[] = [];
   favoriteCounter = 0;
   constructor(private http: HttpClient) {
     this.getFavFromStorage().then(data => this.favorites = data);
     this.getFavCounterFromStorage().then(data => this.favoriteCounter = data);
+    console.log(this.favorites);
   }
   public ngOnInit = () => { };
 
@@ -22,33 +28,39 @@ export class FoodService {
     return this.http.get<Food[]>('../assets/foods.json');
   }
 
-  getFavorites(): Observable<Food[]> {
+  getFavorites(): Observable<FatSecret[]> {
     return of(this.favorites);
   }
 
 
-  async deleteFavorites(id: number): Promise<boolean>{
+  async deleteFavorites(name: string): Promise<boolean>{
 
-    this.favorites = this.favorites.filter(data => data.id !== id);
+    this.favorites = this.favorites.filter(data => data.name !== name);
     await this.saveFavIntoStorage();
     await this.saveFavCounterIntoStorage();
     return true;
   }
 
-  async saveFav(favorite: Food): Promise<boolean> {
-    //this.favorites.push(favorite)
-   let contador = 0;
-    for (let index = 0; index < this.favorites.length; index++) {
-      if(this.favorites[index].id === favorite.id){
-        contador++;
-      }
+  async saveFav(favorite: FatSecret): Promise<boolean> {
+    var contador = 0;
+    if(this.favorites.length > 0){
+       this.favorites.forEach(n => {if(n.name! === favorite.name){contador++;};});
+
+    if(contador === 0){
+      this.favorites.push(favorite);
+      await this.saveFavIntoStorage();
+      await this.saveFavCounterIntoStorage();
+      return true;
+    }else{
+      return false;
     }
-      if(contador === 0){
-        this.favorites.push(favorite);
-      }
-    await this.saveFavIntoStorage();
-    await this.saveFavCounterIntoStorage();
-    return true;
+
+    }else{
+      this.favorites.push(favorite);
+      await this.saveFavIntoStorage();
+      await this.saveFavCounterIntoStorage();
+      return true;
+    }
   }
 
   async saveFavIntoStorage(): Promise<boolean> {
@@ -66,7 +78,7 @@ export class FoodService {
     });
     return true;
   }
-  async getFavFromStorage(): Promise<Food[]> {
+  async getFavFromStorage(): Promise<FatSecret[]> {
     const retorno = await Storage.get({ key: 'favs' });
 
     return JSON.parse(retorno.value) ? JSON.parse(retorno.value) : [];
