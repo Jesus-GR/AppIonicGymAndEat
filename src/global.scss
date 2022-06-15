@@ -84,3 +84,10 @@ ion-input {
   box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
   vertical-align: middle;
 }
+
+
+ion-button:hover{
+  --background: #5C87F2;
+  --opacity: 0.8;
+  --color: black;
+}

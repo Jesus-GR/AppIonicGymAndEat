@@ -21,6 +21,7 @@ import { FilterByDayPipe } from './filter-by-day.pipe';
 import { FirstLetterPipe } from './pipes/first-letter.pipe';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireModule } from '@angular/fire/compat';
+import { SpotyComponent } from './components/spoty/spoty.component';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
     AngularFireStorageModule,
-    AngularFireModule
+    AngularFireModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },FatSecretService,ScreenTrackingService,UserTrackingService],
   bootstrap: [AppComponent],

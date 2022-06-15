@@ -1,6 +1,63 @@
-.buttonBack{
-  color: black;
+.col__data{
+  text-align: end;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  padding-right: 20px;
+  background-color: #5C87F2;
+  color: white;
 }
-.alertClass{
-  --background-color: red;
+
+.col__title{
+  margin-top: -10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  text-align: center;
+  background-color: white;
+  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
+}
+
+.col__button{
+  margin-top: -10px;
+  margin-bottom: 10px;
+  padding-right: -50px;
+  border-bottom: 1px solid black;
+  text-align: center;
+  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
+  background-color: #5C87F2;
+}
+
+
+ion-grid{
+  margin-top: 90px;
+  margin-left: 10px;
+
+}
+
+.foodTitle{
+  position: absolute;
+  top: 20px;
+  background-color: #5C87F2;
+  width: 100%;
+  text-align: center;
+}
+
+ion-button{
+  width: 70%;
+  height: 40px;
+  margin-left: 15%;
+  margin-top: 20px ;
+  text-align: center;
+  --color: #5C87F2;
+  --border-radius: 20px
+}
+ion-button:hover{
+  --color: black;
+}
+
+.trashButton{
+  width: 40px;
+  color: black;
+  margin-top: -5px;
 }

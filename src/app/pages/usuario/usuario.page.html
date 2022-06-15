@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-tabs>
+  <!--<ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button (click)="goToFood()">
         <ion-icon name="restaurant-outline" color="dark"></ion-icon>
@@ -23,7 +23,7 @@
         <ion-label>Gym</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
-  </ion-tabs>
+  </ion-tabs>-->
   <div id="userPicture">
     <div id="userElements">
       <ion-avatar>
@@ -51,7 +51,7 @@
       [value]="user.imc/100"
     ></ion-progress-bar>
   </div>
-
+  <app-spoty></app-spoty>
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <ion-content>

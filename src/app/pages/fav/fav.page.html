@@ -15,33 +15,98 @@
     <ion-tab-bar slot="bottom">
       <ion-tab-button (click)="goToFood()">
         <ion-icon name="restaurant-outline" color="dark"></ion-icon>
-        <ion-label>Favs</ion-label>
+        <ion-label>Alimentos</ion-label>
       </ion-tab-button>
 
       <ion-tab-button (click)="goToUser()">
         <ion-icon name="person" color="dark"></ion-icon>
-        <ion-label>User</ion-label>
+        <ion-label>Usuario</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
 
-  <ion-button (click)="cambiarEsDesplegado()">Favoritos</ion-button>
+  <ion-button class="fav__button" (click)="cambiarEsDesplegado()">Favoritos</ion-button>
   <ion-list class="ion-text-center" style="background-color: var(--background);">
       <ion-card style="width: 100%;" *ngIf="esDesplegado === true">
         <ion-label *ngIf="favoritos.length === 0">No tiene ningún favorito guardado</ion-label>
         <ion-item *ngFor="let f of favoritos" >
-          <ion-button (click)="presentAlertConfirma(f)" slot="end" color="medium">
+          <ion-button class="trashButton" (click)="presentAlertConfirma(f)" slot="end" color="#5C87F2">
             <ion-icon name="trash-outline"></ion-icon>
           </ion-button>
-          <ion-label (click)="openPopover(f)" style="margin-left: 10px;" class="ion-text-center">{{f.name.toLocaleUpperCase()}}</ion-label>
-          <ion-popover [isOpen]="isPopoverOpen">
-            <ng-template>
-              {{f.name}}
-            </ng-template>
-          </ion-popover>
+          <ion-label (click)="openPopoverWithFood(f)" style="margin-left: 10px;" class="ion-text-center">{{f.name.toLocaleUpperCase()}}</ion-label>
         </ion-item>
       </ion-card>
   </ion-list>
+  <ion-modal [isOpen]="isPopoverOpen">
+    <ng-template>
+      <h1 class="foodTitle">{{food.name.toLocaleUpperCase()}}</h1>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="col__title" size="8">
+            <h2>Calorías:</h2>
+          </ion-col>
+          <ion-col class="col__data" size="3">
+            <h6>{{food.calories}}</h6>
+          </ion-col>
+          <ion-col class="col__title"  size="8">
+            <h5>Grasas:</h5>
+          </ion-col>
+          <ion-col class="col__data"  size="3">
+            <h5>{{food.fat_total_g}}</h5>
+          </ion-col>
+          <ion-col class="col__title"  size="8">
+            <h5>Grasas saturadas:</h5>
+          </ion-col>
+          <ion-col class="col__data"  size="3">
+            <h5>{{food.fat_saturated_g}}</h5>
+          </ion-col>
+          <ion-col class="col__title"  size="8">
+            <h5>Proteínas:</h5>
+          </ion-col>
+          <ion-col class="col__data"  size="3">
+            <h5>{{food.protein_g}}</h5>
+          </ion-col>
+          <ion-col class="col__title"  size="8">
+            <h5>Sodio:</h5>
+          </ion-col>
+          <ion-col class="col__data"  size="3">
+            <h5>{{food.sodium_mg}}</h5>
+          </ion-col>
+          <ion-col class="col__title"  size="8">
+            <h5>Potasio:</h5>
+          </ion-col>
+          <ion-col class="col__data"  size="3">
+            <h5>{{food.potassium_mg}}</h5>
+          </ion-col>
+          <ion-col class="col__title"  size="8">
+            <h5>Colesterol:</h5>
+          </ion-col>
+          <ion-col class="col__data"  size="3">
+            <h5>{{food.cholesterol_mg}}</h5>
+          </ion-col>
+          <ion-col class="col__title"  size="8">
+            <h5>Carbohidratos:</h5>
+          </ion-col>
+          <ion-col class="col__data"  size="3">
+            <h5>{{food.carbohydrates_total_g}}</h5>
+          </ion-col>
+          <ion-col class="col__title"  size="8">
+            <h5>Fibra:</h5>
+          </ion-col>
+          <ion-col class="col__data"  size="3">
+            <h5>{{food.fiber_g}}</h5>
+          </ion-col>
+          <ion-col class="col__title"  size="8">
+            <h5>Azucar:</h5>
+          </ion-col>
+          <ion-col class="col__data"  size="3">
+            <h5>{{food.sugar_g}}</h5>
+          </ion-col>
+        </ion-row>
+       </ion-grid>
+      <ion-button class="fav__button--modal" (click)="openPopover()">Cerrar</ion-button>
+    </ng-template>
+  </ion-modal>
 
 
 </ion-content>

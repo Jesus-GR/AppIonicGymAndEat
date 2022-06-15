@@ -15,6 +15,21 @@ import { FatSecret } from 'src/app/model/fat-secret';
 })
 export class FavPage implements OnInit {
   favoritos: FatSecret[] =[];
+  food: FatSecret = {
+    id: 0,
+    name: '',
+    calories: 0,
+    serving_size_g: 0,
+    fat_total_g: 0,
+    fat_saturated_g: 0,
+    protein_g: 0,
+    sodium_mg: 0,
+    potassium_mg: 0,
+    cholesterol_mg: 0,
+    carbohydrates_total_g: 0,
+    fiber_g: 0,
+    sugar_g: 0
+  };
   esDesplegado = false;
   isPopoverOpen = false;
   constructor(private foodService: FoodService,
@@ -59,31 +74,14 @@ console.log('Confirm Cancel: blah');
     this.router.navigateByUrl('usuario');
   }
 
-  async presentAlertConfirm(a: FatSecret) {
-    const alert = await this.alertController.create({
-      cssClass: 'alertClass',
-      header: `Nombre: ${a.name.toLocaleUpperCase()}`,
-      message: `Valor por 100g <br>
-     <strong>Calorías</strong>: ${a.calories}<br>
-     <strong>Grasas</strong>: ${a.fat_total_g}<br>
-     <strong>Carbohidratos</strong>:${a.carbohydrates_total_g}<br>
-     <strong>Azucar</strong>:${a.sugar_g}<br>
-     <strong>Fibra</strong>: ${a.fiber_g}<br>
-     <strong>Proteina</strong>:${a.protein_g}<br>
-     <strong>Sal</strong>:${a.sodium_mg}<br>
-     <strong>Colesteror</strong>:${a.cholesterol_mg}<br>`
-      ,
-buttons: [ {
-          text: 'Volver',
-          cssClass: 'buttonBack',
-          handler: (blah) => {
-console.log('Confirm Cancel: blah');
-} }]
-});
-    await alert.present();
+
+  openPopoverWithFood(f: FatSecret){
+    this.food = f;
+    console.log(this.food);
+    this.isPopoverOpen = !this.isPopoverOpen;
   }
 
-  openPopover(f: FatSecret){
+  openPopover(){
     this.isPopoverOpen = !this.isPopoverOpen;
   }
 }
