@@ -1,31 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="success">
-    <ion-title class="ion-text-center" style="font-size: 2em;">GymEat!
-      <img src="assets\dieta-equilibrada.png" style="width: 50px;vertical-align: middle; margin-left: 20px;">
+<ion-header [translucent]="true" color="primary">
+  <ion-toolbar color="primary">
+    <ion-title class="headerTitle">
+      <span class="logo">GymEat!</span>
+      <span class="img"><img src="../../../assets/gymEatLogo2.png"></span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="primary">
+<ion-content class="content" fullscreen="true" color="primary" scrollEvents="true">
   <ion-label>
-    <img src="../assets/pngwing.com.png" alt="">
-    <h1>Bienvenido</h1>
+    <h1 class="title">¡Bienvenido!</h1>
   </ion-label>
   <ion-list class="formLoggin">
-    <ion-item>
       <ion-input type="text" [(ngModel)]="email" placeholder="Usuario" ></ion-input>
-    </ion-item>
-    <ion-item>
       <ion-input type="password" [(ngModel)]="pass" placeholder="Contraseña"></ion-input>
-    </ion-item>
   </ion-list>
-  <ion-button (click)="login()" color="success" style="margin-top: 10px; margin-left: 110px;">Entrar</ion-button>
+  <ion-button class="button" color="secondary" (click)="login()">Entrar</ion-button>
 
-  <div style="text-align: center; margin-top: 10px;">
-    <a href="/registro" style="color: white;">¿Aún no estás registrado?</a>
+  <div class="links">
+    <a href="/registro">¿Aún no estás registrado?</a>
   </div>
-  <div style="text-align: center; margin-top: 10px;">
-    <a href="/reset-password" style="color: white;">¿Has olvidado la contraseña?</a>
+  <div class="links">
+    <a href="/reset-password">¿Has olvidado la contraseña?</a>
   </div>
 </ion-content>
 

@@ -1,16 +1,26 @@
-ion-item{
-  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
-}
 
+ion-list{
+  padding-bottom: -50px;
+  background: none;
+  border: none;
+
+  ion-item{
+    margin-bottom: 10px;
+    text-decoration: none;
+    border: none;
+  }
+}
 .contentPopover{
   width: 90%;
   text-align: center;
   margin: auto;
+  text-decoration: none;
 }
 .contentPopover ion-button{
   width: 100px;
   margin: auto;
   margin-left: 10px;
+  text-decoration: none;
 }
 
 .borrarUsuario{

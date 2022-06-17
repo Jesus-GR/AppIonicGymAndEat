@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons class="iconoMenu" slot="end">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -10,10 +10,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button (click)="goToFood()">
+<ion-content color="primary">
+  <ion-tabs color="secondary">
+    <ion-tab-bar color="secondary" slot="bottom">
+      <ion-tab-button color="secondary" (click)="goToFood()">
         <ion-icon name="restaurant-outline" color="dark"></ion-icon>
         <ion-label>Food</ion-label>
       </ion-tab-button>
@@ -24,8 +24,8 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-    <ion-list class="listDays"  *ngFor="let d of diasSemana">
-      <ion-button [disabled]="!hayRutinEnDia(d)" (click)="showModal(d)">{{d}}</ion-button>
+    <ion-list color="tertiary" class="listDays"  *ngFor="let d of diasSemana">
+      <ion-button color="tertiary" [disabled]="!hayRutinEnDia(d)" (click)="showModal(d)">{{d}}</ion-button>
     </ion-list>
 
     <ion-modal [isOpen]="openCloseModal">

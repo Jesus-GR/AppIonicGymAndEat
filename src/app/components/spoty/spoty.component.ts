@@ -12,6 +12,7 @@ export class SpotyComponent implements OnInit {
   query: string;
   songs: Song[] = [];
   data: any = {};
+
   constructor(private spotyService: SpotyService) { }
 
   ngOnInit() {}

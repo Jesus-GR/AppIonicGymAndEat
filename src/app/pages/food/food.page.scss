@@ -1,13 +1,20 @@
 ion-searchbar{
   margin-bottom: 10px;
 }
+
+.gridContainer{
+  width: 100%;
+  height: 470px;
+  overflow-y: scroll;
+}
+
 .col__data{
   text-align: end;
   margin-top: -10px;
   margin-bottom: 10px;
   border-bottom: 1px solid black;
   padding-right: 20px;
-  background-color: #5C87F2;
+  background-color: var(--ion-color-secondary);
   color: white;
 }
 
@@ -17,11 +24,12 @@ ion-searchbar{
   margin-bottom: 10px;
   border-bottom: 1px solid black;
   text-align: center;
-  background-color: white;
+  color: white;
+  background-color: var(--ion-color-tertiary);
 }
 
 .firstTitle{
-  background-color: #5C87F2;
+  background-color: var(--ion-color-secondary);
   text-align: center;
   margin-top: -10px;
   margin-left: 10px;
@@ -37,14 +45,14 @@ ion-searchbar{
   padding-right: -50px;
   border-bottom: 1px solid black;
   text-align: center;
-  background-color: #5C87F2;
+  background-color: var(--ion-color-secondary);
 }
 .col__button--fav{
   cursor: pointer;
   color: white;
-  margin-top: 13px;
+  margin-top: 20px;
   font-size: 1.3em;
-  background-color: #5C87F2;
+  background-color: var(--ion-color-secondary);
 }
 
 .col__button--fav:hover{
@@ -52,16 +60,26 @@ ion-searchbar{
 }
 
 .col__data--firstData{
-  height: 58px;
-  margin-top: -10px;
+  height: 66px;
+  margin-top: -6px;
   padding-top: 8px;
   margin-left: -26px;
-  background-color: #5C87F2;
+  background-color: var(--ion-color-secondary);
   text-align: center;
-  border-bottom: 1px solid black;
   border-right: 1px solid black;
   color: white;
   font-weight: bold;
   padding-right: 10px;
 }
 
+.putaMierda{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.putaMierda p {
+  vertical-align: middle;
+  margin-top: 25px;
+  padding-bottom: -25px;
+  margin-left: 10px;
+}

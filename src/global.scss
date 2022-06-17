@@ -9,7 +9,6 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
-
 /* Core CSS required for Ionic components to work properly */
 
 @import "~@ionic/angular/css/core.css";
@@ -29,65 +28,3 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab:wght@400;900&display=swap');
-
-ion-title {
-    text-align: center;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 2em;
-
-}
-
-ion-menu {
-
-    font-family: 'Bebas Neue', cursive;
-}
-
-ion-menu-button {
-
-    height: 43px;
-}
-
-ion-input {
-    text-align: center;
-    font-family: 'Bebas Neue', cursive;
-}
-
-*{
-  --background: #D3D5D8;
-  --gray: #797d7f;
-  --lightShadow: #FFFF;
-  --white:#FFFFFF;
-  --black:#000000;
-  --darkRed:#942926;
-  --green:#7EE0B9;
-  --darkGreen:#26996B;
-  --red:#E06A67;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.iconoMenu{
-  border-radius: 50%;
-  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
-  margin-right: 20px;
-}
-
-
-.iconoMenu--back ion-icon{
-  color: black;
-}
-
-.iconoMenu--back{
-  border-radius: 50%;
-  margin-left: -30px;
-  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
-  vertical-align: middle;
-}
-
-
-ion-button:hover{
-  --background: #5C87F2;
-  --opacity: 0.8;
-  --color: black;
-}

@@ -32,6 +32,8 @@ export class FoodPage implements OnInit {
     sugar_g: 0
   };
 
+  isModalOpen: boolean;
+
   constructor(public fatSecretService: FatSecretService,
               private router: Router,
               private foodService: FoodService ) { }
@@ -63,9 +65,14 @@ export class FoodPage implements OnInit {
       fiber_g: 0,
       sugar_g: 0
     };
+    this.changeModal();
   }
 
 guardarEnFavs(food: any){
   this.foodService.saveFav(food);
+}
+
+changeModal(){
+  this.isModalOpen = !this.isModalOpen;
 }
 }

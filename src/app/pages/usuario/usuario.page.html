@@ -1,21 +1,21 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color="primary">
     <ion-buttons class="iconoMenu" slot="end">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      <ion-icon name="blank"></ion-icon>
-      Usuario
+
+    <ion-title class="userTitle">
+      <span class="userTitle__title"><h2>Usuario</h2></span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!--<ion-tabs>
-    <ion-tab-bar slot="bottom">
+<ion-content color="primary">
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" >
       <ion-tab-button (click)="goToFood()">
-        <ion-icon name="restaurant-outline" color="dark"></ion-icon>
-        <ion-label>Food</ion-label>
+        <ion-icon color="primary" name="restaurant-outline" color="dark"></ion-icon>
+        <ion-label color="primary">Food</ion-label>
       </ion-tab-button>
 
       <ion-tab-button (click)="goToGym()">
@@ -23,19 +23,19 @@
         <ion-label>Gym</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
-  </ion-tabs>-->
+  </ion-tabs>
   <div id="userPicture">
     <div id="userElements">
       <ion-avatar>
         <img class="imageProfile" [src]="user.image" />
         <ion-icon  class="cameraIcon" (click)="openCloseModal()" name="camera-outline"></ion-icon>
       </ion-avatar>
-      <h1>{{user.nombre}}</h1>
+      <h1 class="userName">{{user.nombre}}</h1>
     </div>
-    <h6>Altura: {{user.altura}}</h6>
+    <h6 style="padding-top: 20px;">Altura: {{user.altura}}</h6>
     <ion-progress-bar
       class="progressBar"
-      color="primary"
+      color="warning"
       [value]="user.altura/250"
     ></ion-progress-bar>
     <h6>Peso {{user.peso}}</h6>
@@ -51,7 +51,6 @@
       [value]="user.imc/100"
     ></ion-progress-bar>
   </div>
-  <app-spoty></app-spoty>
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <ion-content>

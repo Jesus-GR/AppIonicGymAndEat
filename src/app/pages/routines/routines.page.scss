@@ -1,43 +1,35 @@
 
-ion-button{
-  background: none;
-}
-
-ion-icon{
-  background: none;
-}
-
-
 .listaRutinas{
   display: flex;
+  background: none;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  border: none;
 }
 
 .deleteButton{
   background: none;
+  color: var(--ion-color-secondary);
 }
 
-ion-list{
-  background-color: var(--background);
-}
 
 ion-item{
   width: 80%;
   border-radius: 15px;
-  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
+  text-align: center;
 }
 
 .addRoutines{
   width: 200px;
-  height: 60px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 40px;
   margin-left: 20%;
   text-align: center;
   color: black;
   border: none;
-  box-shadow: -8px -8px 20px 1px #fff9, 5px 5px 6px 1px #0001;
+  box-shadow: -8px -8px 20px 1px var(--ion-color-tertiary), 5px 5px 6px 1px #0001;
   border-radius: 15px;
-  border: 1px grey solid;
-  background-color:var(--background);
+  border: 1px grey var(--ion-color-tertiary);
 }

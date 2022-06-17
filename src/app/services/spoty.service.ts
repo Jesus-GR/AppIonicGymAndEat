@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import { HttpClient } from '@angular/common/http';
@@ -24,7 +25,7 @@ export class SpotyService {
       },
       headers: {
         'X-RapidAPI-Key': '32bc6180e5msh460b004a458f78dp1b99a2jsn5672157a42b3',
-		    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+		    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com',
       }
     });
   }

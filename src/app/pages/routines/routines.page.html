@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons class="iconoMenu" slot="end">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -10,18 +10,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <button class="addRoutines" expand="block" shape="round" fill="outline" (click)="goToRoutines()">
+<ion-content color="primary">
+  <button color="tertiary"  class="addRoutines" expand="block" shape="round" fill="outline" (click)="goToRoutines()">
     <ion-icon slot="start" name="add-circle-outline"></ion-icon>
     Add routines
   </button>
 
 
   <ion-list class="listaRutinas" *ngFor="let r of rutinas">
-    <ion-item routerLink="/rutina-detail/{{r.rutinaID}}">
+    <ion-item color="tertiary" routerLink="/rutina-detail/{{r.rutinaID}}">
       {{r.nombreRutina}}
     </ion-item>
-    <button class="deleteButton" href=""><ion-icon name="trash-outline" slot="end" (click)="deleteRoutines(r.rutinaID)" style="font-size: 1.5em ;"></ion-icon></button>
+    <button color="secondary" class="deleteButton" href=""><ion-icon name="trash-outline" slot="end" (click)="deleteRoutines(r.rutinaID)" style="font-size: 1.5em ;"></ion-icon></button>
   </ion-list>
 </ion-content>
 
