@@ -5,15 +5,14 @@
     </ion-buttons>
     <ion-title style="margin-top: 20px; font-size: 2em; text-align: center;">
       GymEat!
-     <img src="assets\dieta-equilibrada.png" style="width: 50px;vertical-align: middle;" color="primary">
-
     </ion-title>
+
   </ion-toolbar>
 </ion-header>
 <ion-content color="primary">
   <h1>Registro</h1>
   <div id="contenedor">
-    <ion-list >
+    <ion-list  >
       <ion-item>
         <ion-input type="text" [(ngModel)]="usuario.email" placeholder="Correo electrónico" ></ion-input>
       </ion-item>
@@ -37,10 +36,11 @@
       </ion-item>
     </ion-list>
 
-    <ion-button (click)="register()" expand="block" fill="clear" shape="round" style="color: white;">
-      Registrarse
+    <ion-button (click)="register()" expand="block" fill="clear" shape="round">
+      <p>Registrarse</p>
+    </ion-button>
+    <ion-button href="/welcome" expand="block" fill="clear" shape="round">
+      <p>volver</p>
     </ion-button>
     </div>
-
-    <pre>{{usuario |json}}</pre>
 </ion-content>

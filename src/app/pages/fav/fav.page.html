@@ -1,20 +1,20 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons class="iconoMenu" slot="end">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
     <ion-title>
       <ion-icon name="blank"></ion-icon>
-      Usuario
+      Favoritos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="primary">
   <ion-tabs>
-    <ion-tab-bar slot="bottom">
+    <ion-tab-bar color="secondary" slot="bottom">
       <ion-tab-button (click)="goToFood()">
-        <ion-icon name="restaurant-outline" color="dark"></ion-icon>
+        <ion-icon name="restaurant-outline" color="tertiary"></ion-icon>
         <ion-label>Alimentos</ion-label>
       </ion-tab-button>
 
@@ -26,20 +26,25 @@
   </ion-tabs>
 
   <ion-button class="fav__button" (click)="cambiarEsDesplegado()">Favoritos</ion-button>
-  <ion-list class="ion-text-center" style="background-color: var(--background);">
-      <ion-card style="width: 100%;" *ngIf="esDesplegado === true">
-        <ion-label *ngIf="favoritos.length === 0">No tiene ningún favorito guardado</ion-label>
-        <ion-item *ngFor="let f of favoritos" >
-          <ion-button class="trashButton" (click)="presentAlertConfirma(f)" slot="end" color="#5C87F2">
+  <ion-list color="tertiary" class="ion-text-center">
+      <ion-card  style="width: 100%;" *ngIf="esDesplegado === true">
+        <ion-label  *ngIf="favoritos.length === 0">No tiene ningún favorito guardado</ion-label>
+        <ion-item color="tertiary" *ngFor="let f of favoritos" >
+          <ion-button class="trashButton" (click)="presentAlertConfirma(f)" slot="end">
             <ion-icon name="trash-outline"></ion-icon>
           </ion-button>
           <ion-label (click)="openPopoverWithFood(f)" style="margin-left: 10px;" class="ion-text-center">{{f.name.toLocaleUpperCase()}}</ion-label>
         </ion-item>
       </ion-card>
   </ion-list>
-  <ion-modal [isOpen]="isPopoverOpen">
-    <ng-template>
-      <h1 class="foodTitle">{{food.name.toLocaleUpperCase()}}</h1>
+
+  <ion-modal show-backdrop="false" [isOpen]="isPopoverOpen">
+    <ng-template >
+      <h1 class="foodTitle">
+        <ion-icon class="returnButton" (click)="openPopover()" name="return-up-back-outline"></ion-icon>
+        {{food.name.toLocaleUpperCase()}}
+      </h1>
+
       <ion-grid>
         <ion-row>
           <ion-col class="col__title" size="8">
@@ -104,7 +109,6 @@
           </ion-col>
         </ion-row>
        </ion-grid>
-      <ion-button class="fav__button--modal" (click)="openPopover()">Cerrar</ion-button>
     </ng-template>
   </ion-modal>
 

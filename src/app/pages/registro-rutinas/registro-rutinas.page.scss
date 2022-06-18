@@ -3,3 +3,18 @@
     top: -100px;
     margin: auto;
 }
+
+ion-item ion-label{
+  color: white;
+}
+
+ion-input{
+  color: white;
+}
+
+ion-select{
+  --background: var(--ion-color-tertiary)
+}
+ion-popover{
+  --background: var(--ion-color-tertiary)
+}

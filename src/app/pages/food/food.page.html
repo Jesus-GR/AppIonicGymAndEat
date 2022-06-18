@@ -26,13 +26,13 @@
   </ion-tabs>
   <ion-searchbar [(ngModel)]="query" (keyup)="obtenerDatos()"></ion-searchbar>
 
-  <div class="gridContainer" *ngIf="food.name === '' ">
+  <div class="gridContainer" *ngIf="food.name !== '' ">
     <ion-grid>
       <ion-row>
         <ion-col class="firstTitle" size="8">
-          <span class="putaMierda">
+          <span class="caloriesTitle">
             <h3>Calorías</h3>
-            <p> x 100gr:</p>
+            <p>x100gr:</p>
           </span>
         </ion-col>
         <ion-col class="col__data--firstData" size="2">

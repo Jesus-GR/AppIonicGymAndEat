@@ -14,7 +14,7 @@ import { debounceTime } from 'rxjs/operators';
   styleUrls: ['./food.page.scss'],
 })
 export class FoodPage implements OnInit {
-
+  traduccion = '';
   query = '';
   food: FatSecret = {
     id:0,
@@ -36,7 +36,7 @@ export class FoodPage implements OnInit {
 
   constructor(public fatSecretService: FatSecretService,
               private router: Router,
-              private foodService: FoodService ) { }
+              private foodService: FoodService) { }
 
   ngOnInit() {
   }
@@ -75,4 +75,5 @@ guardarEnFavs(food: any){
 changeModal(){
   this.isModalOpen = !this.isModalOpen;
 }
+
 }

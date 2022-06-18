@@ -24,7 +24,7 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-    <ion-list color="tertiary" class="listDays"  *ngFor="let d of diasSemana">
+    <ion-list color="secondary" class="listDays"  *ngFor="let d of diasSemana">
       <ion-button color="tertiary" [disabled]="!hayRutinEnDia(d)" (click)="showModal(d)">{{d}}</ion-button>
     </ion-list>
 
@@ -34,17 +34,17 @@
         <ion-radio-group [(ngModel)]="editMode">
 
           <ion-list-header>
-            <ion-label>Mode</ion-label>
+            <ion-label color="secondary">Mode</ion-label>
           </ion-list-header>
 
-          <ion-item class="radioItem">
+          <ion-item color="tertiary" class="radioItem">
             <ion-label><ion-icon name="create-outline"></ion-icon></ion-label>
-            <ion-radio  slot="start" value="edit" color="danger"></ion-radio>
+            <ion-radio  slot="start" value="edit" color="secondary"></ion-radio>
           </ion-item>
 
-          <ion-item class="radioItem">
+          <ion-item color="tertiary" class="radioItem">
             <ion-label><ion-icon name="eye-outline"></ion-icon></ion-label>
-            <ion-radio slot="start" value="view" color="danger"></ion-radio>
+            <ion-radio slot="start" value="view" color="secondary"></ion-radio>
           </ion-item>
         </ion-radio-group>
       </ion-list>
@@ -76,7 +76,7 @@
         <ion-list class="listTemplate" *cdkVirtualFor="let r of rutina.ejercicios | filterByDay: diaSeleccionado">
 
         <ion-grid >
-            <h4 *ngIf="editMode === 'view'">Nombre: {{r.nombreEjercicio}}</h4>
+            <h3 *ngIf="editMode === 'view'">Nombre: {{r.nombreEjercicio}}</h3>
             <ion-input *ngIf="editMode === 'edit'" [(ngModel)]="r.nombreEjercicio">Nombre:</ion-input>
             <h3 *ngIf="editMode === 'view'">Series: {{r.numeroSeries}}</h3>
             <ion-input *ngIf="editMode === 'edit'" [(ngModel)]="r.numeroSeries">Series:</ion-input>

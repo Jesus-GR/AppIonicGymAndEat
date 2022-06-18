@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons class="iconoMenu" slot="end">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -11,12 +11,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-input type="text" placeholder="Nombre Rutina" [(ngModel)]="rutina.nombreRutina"></ion-input>
+<ion-content color="primary" >
+<ion-input  type="text" placeholder="Nombre Rutina" [(ngModel)]="rutina.nombreRutina"></ion-input>
 <ion-button (click)="openOrCloseModal()" style="margin-left: 70px">Añadir ejercicio</ion-button>
-<ion-item>
+<ion-item color="primary" *ngIf="ejercicios.length !== 0">
   <ion-label>
-    <pre>Día   Nombre   Series   Repes</pre>
+    <pre>Día    Nombre    Series    Repes</pre>
   </ion-label>
 </ion-item>
   <ion-list *ngFor="let e of ejercicios">
@@ -27,7 +27,7 @@
 
   <ion-popover [isOpen]="isModalOpen" class="popover">
   <ng-template>
-  <ion-item>
+  <ion-item color="tertiary">
     <ion-select placeholder="Día semana" [(ngModel)]="ejercicio.diaSemana">
       <ion-select-option value="lunes">Lunes</ion-select-option>
       <ion-select-option value="martes">Martes</ion-select-option>
@@ -39,7 +39,7 @@
     </ion-select>
   </ion-item>
 
-  <ion-item>
+  <ion-item color="tertiary">
     <ion-select placeholder="Grupo muscular" [(ngModel)]="ejercicio.grupoMuscular">
       <ion-select-option value="dorsales">Dorsales</ion-select-option>
       <ion-select-option value="pectorales">Pectorales</ion-select-option>
@@ -54,7 +54,7 @@
     <ion-input type="text" clearInput  placeholder="Nombre ejercicio" [(ngModel)]="ejercicio.nombreEjercicio"></ion-input>
     <ion-input type="number" placeholder="Número de series" [(ngModel)]="ejercicio.numeroSeries"></ion-input>
     <ion-input type="number" placeholder="Número de repeticiones" [(ngModel)]="ejercicio.numeroRepeticiones"></ion-input>
-    <ion-button color="success" (click)="onSubmit()">Guardar</ion-button>
+    <ion-button color="secondary" (click)="onSubmit()">Guardar</ion-button>
     <ion-button color="danger" (click)="openOrCloseModal()">Cancelar</ion-button>
   </ng-template>
 </ion-popover>

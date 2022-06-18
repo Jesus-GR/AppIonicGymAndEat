@@ -20,11 +20,11 @@ export class RegistroPage implements OnInit {
     password: '',
     nombre: '',
     edad: '',
-    peso: 0,
-    altura: 0,
-    imc: 0,
+    peso: null,
+    altura: null,
+    imc: null,
     image: '',
-    pesoMaximo: 0
+    pesoMaximo: null
   };
 
   constructor(public router: Router,
