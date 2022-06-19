@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { Food } from '../model/food';
 import { FatSecretService } from '../providers/fat-secret.service';
 import { AuthService } from '../services/auth.service';
 import { FoodService } from '../services/food.service';
@@ -11,24 +10,24 @@ import { FoodService } from '../services/food.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit{
-alimentos: Food[] = [];
-alimento: Food = {
-    id:null
+export class HomePage{
+//alimentos: Food[] = [];
+//alimento: Food = {
 };
 
-esDesplegado = false;
+ /*esDesplegado = false;
 
 constructor(
-  private authService: AuthService,
+ private authService: AuthService,
   private foodService: FoodService,
   public alertController: AlertController,
   public fatSecretService: FatSecretService,
   public router: Router){}
 
   ngOnInit(): void {
-    this.foodService.getFoods().subscribe(data => this.alimentos = data);
-  }
+
+  }*/
+/*
 
   getAlimento(id: number){
     this.alimento = this.alimentos.filter(data => data.id === id)[0];
@@ -75,5 +74,4 @@ console.log('Confirm Cancel: blah');
     this.router.navigateByUrl('/welcome');
   }
 
-
-}
+*/

@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { resolve } from 'dns';
 import { Observable, of } from 'rxjs';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
-import { FilterByDayPipe } from 'src/app/filter-by-day.pipe';
+import { FilterByDayPipe } from 'src/app/pipes/filter-by-day.pipe';
 import { Ejercicio } from 'src/app/model/ejercicio';
 import { Rutina } from 'src/app/model/rutina';
 import { RutinaService } from 'src/app/services/rutina.service';

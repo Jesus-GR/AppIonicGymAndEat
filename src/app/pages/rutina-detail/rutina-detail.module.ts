@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { RutinaDetailPageRoutingModule } from './rutina-detail-routing.module';
 
 import { RutinaDetailPage } from './rutina-detail.page';
-import { FilterByDayPipe } from 'src/app/filter-by-day.pipe';
+import { FilterByDayPipe } from 'src/app/pipes/filter-by-day.pipe';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({

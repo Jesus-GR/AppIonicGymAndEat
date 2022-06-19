@@ -8,7 +8,6 @@ import { Storage } from '@capacitor/storage';
 import { addDoc, collection, collectionData, deleteDoc, doc, docData, Firestore, setDoc } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { Rutina } from '../model/rutina';
-import { UploadService } from './upload.service';
 
 @Injectable({
   providedIn: 'root'

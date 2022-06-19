@@ -17,11 +17,8 @@ import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MenuComponent } from './components/menu/menu.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-import { FilterByDayPipe } from './filter-by-day.pipe';
-import { FirstLetterPipe } from './pipes/first-letter.pipe';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireModule } from '@angular/fire/compat';
-import { SpotyComponent } from './components/spoty/spoty.component';
 
 
 @NgModule({

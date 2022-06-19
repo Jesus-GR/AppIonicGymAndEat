@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Ejercicio } from './model/ejercicio';
-import { Rutina } from './model/rutina';
+import { Ejercicio } from '../model/ejercicio';
+import { Rutina } from '../model/rutina';
 
 @Pipe({
   name: 'filterByDay'

@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { UsuarioPageRoutingModule } from './usuario-routing.module';
 
 import { UsuarioPage } from './usuario.page';
-import { SpotyComponent } from 'src/app/components/spoty/spoty.component';
+
 
 
 @NgModule({
@@ -17,6 +17,6 @@ import { SpotyComponent } from 'src/app/components/spoty/spoty.component';
     IonicModule,
     UsuarioPageRoutingModule,
   ],
-  declarations: [UsuarioPage,SpotyComponent]
+  declarations: [UsuarioPage]
 })
 export class UsuarioPageModule {}

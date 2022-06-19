@@ -2,7 +2,6 @@
 /* eslint-disable no-var */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Food } from 'src/app/model/food';
 import { FoodService } from 'src/app/services/food.service';
 import { AlertController } from '@ionic/angular';
 import { Alert } from 'selenium-webdriver';

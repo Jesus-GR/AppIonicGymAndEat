@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { Observable,of } from 'rxjs';
-import { Food } from '../model/food';
 import { FatSecret } from '../model/fat-secret';
 import { url } from 'inspector';
 import { Options } from 'selenium-webdriver';

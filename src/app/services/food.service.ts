@@ -4,7 +4,6 @@
 /* eslint-disable no-var */
 /* eslint-disable @typescript-eslint/prefer-for-of */
 import { Injectable, OnInit } from '@angular/core';
-import { Food } from '../model/food';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Capacitor } from '@capacitor/core';
@@ -24,9 +23,6 @@ export class FoodService {
   }
   public ngOnInit = () => { };
 
-  getFoods(): Observable<Food[]> {
-    return this.http.get<Food[]>('../assets/foods.json');
-  }
 
   getFavorites(): Observable<FatSecret[]> {
     return of(this.favorites);

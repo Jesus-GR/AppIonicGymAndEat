@@ -10,7 +10,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CameraService } from 'src/app/services/camera.service';
-import { UploadService } from 'src/app/services/upload.service';
 import { Photo } from 'src/app/model/photo';
 @Component({
   selector: 'app-usuario',

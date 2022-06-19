@@ -49,7 +49,7 @@ export class FoodPage implements OnInit {
   }
 
   obtenerDatos(){
-    this.query !== ''? this.fatSecretService.obtenerDatos(this.query).pipe(debounceTime(1000)).subscribe(f =>{this.food = f[0];})
+    this.query !== ''? this.fatSecretService.obtenerDatos(this.query).subscribe(f =>{this.food = f[0];})
      : this.food = {
       id: 0,
       name: '',

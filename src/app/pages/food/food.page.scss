@@ -83,3 +83,19 @@ ion-searchbar{
   padding-bottom: -25px;
   margin-left: 5px;
 }
+
+ion-input{
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  --background: var(--ion-color-tertiary);
+  border: 1px solid var(--ion-color-secondary);
+  text-align: center;
+}
+
+ion-input ion-icon{
+  cursor: pointer;
+  margin-left: 10px;
+}
+
