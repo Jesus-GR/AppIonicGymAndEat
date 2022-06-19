@@ -11,6 +11,20 @@
 </ion-header>
 
 <ion-content color="primary">
+  <ion-tabs color="secondary">
+    <ion-tab-bar color="secondary" slot="bottom" >
+      <ion-tab-button color="secondary" (click)="goToFood()">
+        <ion-icon color="primary" name="restaurant-outline" color="dark"></ion-icon>
+        <ion-label color="primary">Food</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button (click)="goToUser()">
+        <ion-icon color="primary" name="person"></ion-icon>
+        <ion-label>User</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
   <button color="tertiary"  class="addRoutines" expand="block" shape="round" fill="outline" (click)="goToRoutines()">
     <ion-icon slot="start" name="add-circle-outline"></ion-icon>
     Add routines

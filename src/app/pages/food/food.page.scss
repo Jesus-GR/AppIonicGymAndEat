@@ -98,4 +98,7 @@ ion-input ion-icon{
   cursor: pointer;
   margin-left: 10px;
 }
-
+ion-tab-button{
+  background-color: var(--ion-color-secondary);
+  border: 1px solid var(--ion-color-tertiary);
+}

@@ -33,4 +33,11 @@ export class RoutinesPage implements OnInit {
     this.rutinaService.deleteRutina(id);
   }
 
+  goToUser(){
+    this.router.navigateByUrl('/usuario');
+  }
+  goToFood(){
+    this.router.navigateByUrl('/food');
+  }
+
 }
