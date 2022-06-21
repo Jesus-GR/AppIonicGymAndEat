@@ -46,7 +46,7 @@ public getUsers(): Observable<Usuario[]> {
 
 //docData es una fila de la bbdd
 public getUser(id: string): Observable<Usuario>{
-  return docData(doc(this.firestore,`usuario/${this.auth.getCurrentUser().uid}/infoUser${id}`),{idField: 'uid'}) as Observable<Usuario>;
+  return docData(doc(this.firestore,`usuario/${this.auth.getCurrentUser()?.uid}/infoUser${id}`),{idField: 'uid'}) as Observable<Usuario>;
 }
 
 
@@ -54,11 +54,11 @@ public getUser(id: string): Observable<Usuario>{
 
 //Actualizar usuario
 async updateUser(usuario: Usuario){
-  await setDoc(doc(this.firestore, `usuario/${this.auth.getCurrentUser().uid}/infoUser/${usuario.uid}`), usuario);
+  await setDoc(doc(this.firestore, `usuario/${this.auth.getCurrentUser().uid}/infoUser/${usuario?.uid}`), usuario);
 }
 //Eliminar usuario
-async deleteUser(usuario: Usuario) {
-  await deleteDoc(
-    doc(this.firestore, `usuario/${this.auth.getCurrentUser().uid}/infoUser/${usuario.uid}`));
+async deleteUser(uid: string,id: string) {
+  await deleteDoc(doc(this.firestore, `usuario/${uid}/infoUser/${id}`));
 }
+
 }

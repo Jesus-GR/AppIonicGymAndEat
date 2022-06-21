@@ -30,11 +30,11 @@
     </ion-list>
 
 
-    <ion-popover [isOpen]="isPopoverOpen">
+    <ion-popover color="primary" [isOpen]="isPopoverOpen">
       <ng-template>
-        <ion-content class="contentPopover">
+        <ion-content color="primary" class="contentPopover">
           <h1>¿Está seguro que quiere eliminar su usuario?</h1>
-          <ion-button color="success" (click)="deleteUser()" href="/welcome">Borrar</ion-button>
+          <ion-button color="secondary" (click)="deleteUser()" href="/welcome">Borrar</ion-button>
           <ion-button color="danger" (click)="mostrarPopover()">Cancelar</ion-button>
         </ion-content>
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/model/usuario';
@@ -11,6 +12,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class MenuComponent implements OnInit {
   isPopoverOpen = false;
+
   user: Usuario = {
     uid: '',
     email: '',
@@ -29,10 +31,6 @@ export class MenuComponent implements OnInit {
               public usuarioService: UsuarioService) { }
 
   ngOnInit() {
-    this.usuarioService.getUsers().subscribe(data => {
-      this.users = data;
-      this.user = this.users[0];
-    });
   }
 
   goToUser(){
@@ -42,8 +40,13 @@ export class MenuComponent implements OnInit {
   mostrarPopover(){
     this.isPopoverOpen = !this.isPopoverOpen;
   }
-  deleteUser(){
-    this.authService.deleteUserAuth();
-  }
+
+  /**
+   * Borrar usuario
+   */
+  async deleteUser(){
+    await this.authService.deleteUserAuth().then(()=>{
+    });
+  };
 
 }

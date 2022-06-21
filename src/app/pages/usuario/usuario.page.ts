@@ -11,6 +11,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CameraService } from 'src/app/services/camera.service';
 import { Photo } from 'src/app/model/photo';
+import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.page.html',
@@ -91,4 +92,5 @@ export class UsuarioPage implements OnInit {
     this.select = false;
   }
 
-}
+  }
+

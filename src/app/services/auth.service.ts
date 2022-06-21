@@ -10,15 +10,17 @@ import {
   sendPasswordResetEmail,
   deleteUser
 } from '@angular/fire/auth';
-import { addDoc } from 'firebase/firestore';
+import { addDoc, deleteDoc,doc, Firestore } from 'firebase/firestore';
 import { Usuario } from '../model/usuario';
+import { UsuarioService } from './usuario.service';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
   user: Usuario;
-  constructor(private auth: Auth) { }
+  constructor(private auth: Auth,
+           ) { }
 
   login(email: string, password: string): Promise<boolean>{
     return signInWithEmailAndPassword(this.auth, email, password)
@@ -48,14 +50,17 @@ export class AuthService {
     signOut(this.auth);
     }
 
-    deleteUserAuth(){
-      return deleteUser(this.getCurrentUser())
-      .then(() => {
-        console.log('Successfully deleted user');
-      })
-      .catch((error) => {
-        console.log('Error deleting user:', error);
+    /**
+     * Borrar usuario
+     */
+    async deleteUserAuth(){
+      const auth = getAuth();
+      const user = auth.currentUser;
+      await deleteUser(user).then(() => {
+        this.logout();
+        console.log('User deleted');
+      }).catch((error) => {
+        console.log('Fucking user continue');
       });
     }
-
 }
