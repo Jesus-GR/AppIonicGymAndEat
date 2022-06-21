@@ -17,7 +17,8 @@ export class RoutinesPage implements OnInit {
   constructor(public usuarioService: UsuarioService,
               private router: Router,
               public rutinaService: RutinaService,
-              private auth: AuthService) { }
+              private auth: AuthService) {
+              }
   // eslint-disable-next-line @typescript-eslint/member-ordering
   isModalOpen: boolean;
 

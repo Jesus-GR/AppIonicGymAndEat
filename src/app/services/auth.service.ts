@@ -7,7 +7,8 @@ import {
   User,
   createUserWithEmailAndPassword,
   UserCredential,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  deleteUser
 } from '@angular/fire/auth';
 import { addDoc } from 'firebase/firestore';
 import { Usuario } from '../model/usuario';
@@ -46,4 +47,15 @@ export class AuthService {
   logout() {
     signOut(this.auth);
     }
+
+    deleteUserAuth(){
+      return deleteUser(this.getCurrentUser())
+      .then(() => {
+        console.log('Successfully deleted user');
+      })
+      .catch((error) => {
+        console.log('Error deleting user:', error);
+      });
+    }
+
 }
