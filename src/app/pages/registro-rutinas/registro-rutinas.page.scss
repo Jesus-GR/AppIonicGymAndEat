@@ -1,20 +1,20 @@
 .popover {
-    position: absolute;
-    top: -100px;
-    margin: auto;
+  position: absolute;
+  top: -100px;
+  margin: auto;
 }
 
-ion-item ion-label{
+ion-item ion-label {
   color: white;
 }
 
-ion-input{
+ion-input {
   color: white;
 }
 
-ion-select{
-  --background: var(--ion-color-tertiary)
+ion-select {
+  --background: var(--ion-color-tertiary);
 }
-ion-popover{
-  --background: var(--ion-color-tertiary)
+ion-popover {
+  --background: var(--ion-color-tertiary);
 }

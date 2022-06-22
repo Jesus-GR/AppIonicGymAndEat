@@ -17,7 +17,7 @@ export class FoodPage implements OnInit {
   traduccion = '';
   query = '';
   food: FatSecret = {
-    id:0,
+    id: 0,
     name: '',
     calories: 0,
     serving_size_g: 0,
@@ -29,51 +29,54 @@ export class FoodPage implements OnInit {
     cholesterol_mg: 0,
     carbohydrates_total_g: 0,
     fiber_g: 0,
-    sugar_g: 0
+    sugar_g: 0,
   };
 
   isModalOpen: boolean;
 
-  constructor(public fatSecretService: FatSecretService,
-              private router: Router,
-              private foodService: FoodService) { }
+  constructor(
+    public fatSecretService: FatSecretService,
+    private router: Router,
+    private foodService: FoodService
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  goToUser(){
+  goToUser() {
     this.router.navigateByUrl('/usuario');
   }
-  goToFavs(){
+  goToFavs() {
     this.router.navigateByUrl('/fav');
   }
 
-  obtenerDatos(){
-    this.query !== ''? this.fatSecretService.obtenerDatos(this.query).subscribe(f =>{this.food = f[0];})
-     : this.food = {
-      id: 0,
-      name: '',
-      calories: 0,
-      serving_size_g: 0,
-      fat_total_g: 0,
-      fat_saturated_g: 0,
-      protein_g: 0,
-      sodium_mg: 0,
-      potassium_mg: 0,
-      cholesterol_mg: 0,
-      carbohydrates_total_g: 0,
-      fiber_g: 0,
-      sugar_g: 0
-    };
+  obtenerDatos() {
+    this.query !== ''
+      ? this.fatSecretService.obtenerDatos(this.query).subscribe((f) => {
+          this.food = f[0];
+        })
+      : (this.food = {
+          id: 0,
+          name: '',
+          calories: 0,
+          serving_size_g: 0,
+          fat_total_g: 0,
+          fat_saturated_g: 0,
+          protein_g: 0,
+          sodium_mg: 0,
+          potassium_mg: 0,
+          cholesterol_mg: 0,
+          carbohydrates_total_g: 0,
+          fiber_g: 0,
+          sugar_g: 0,
+        });
     this.changeModal();
   }
 
-guardarEnFavs(food: any){
-  this.foodService.saveFav(food);
-}
+  guardarEnFavs(food: any) {
+    this.foodService.saveFav(food);
+  }
 
-changeModal(){
-  this.isModalOpen = !this.isModalOpen;
-}
-
+  changeModal() {
+    this.isModalOpen = !this.isModalOpen;
+  }
 }

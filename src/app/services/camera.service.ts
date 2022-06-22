@@ -21,7 +21,7 @@ export class CameraService {
               private auth: AuthService,
               private storage: AngularFireStorage) { }
 
-   /* Take Picture */
+   /* Toma la fotografía */
    async takePicture() {
     const image = await Camera.getPhoto({
       quality: 60,
@@ -33,7 +33,7 @@ export class CameraService {
     return blob;
   }
 
-   /* Save Photo in Storage */
+   /* Guarda la fotografía en firebase storage */
 
    uploadFile(file: any, path: string): Promise<string> {
     const nameIdPhoto =
@@ -57,23 +57,23 @@ export class CameraService {
     });
   }
 
-  /* Get one Photo of database */
+  /* Obtiene una foto de firebase storage */
   getPhoto(id: string): Observable<Photo> {
     return docData(doc(this.firestore, `${this.pathToPhotos}/${id}`), {
       idField: "photoId"
     }) as Observable<Photo>;
   }
-   /* Add Photo in database */
+   /* Añade una fotografía */
    async addPhoto(photo: Photo) {
     await addDoc(collection(this.firestore, this.pathToPhotos), photo);
   }
 
-  /* Delete Photo in database */
+  /* Elimina la fotografía */
   async deletePhoto(id: string) {
     await deleteDoc(doc(this.firestore, `${this.pathToPhotos}/${id}`));
   }
 
-  /* Update Photo in database */
+  /* Actualiza la fotografía*/
   async updatePhoto(photo: Photo) {
     await setDoc(
       doc(this.firestore, `${this.pathToPhotos}/${photo.photoId}`),

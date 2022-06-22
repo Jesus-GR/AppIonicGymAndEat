@@ -13,7 +13,7 @@ import { FatSecret } from 'src/app/model/fat-secret';
   styleUrls: ['./fav.page.scss'],
 })
 export class FavPage implements OnInit {
-  favoritos: FatSecret[] =[];
+  favoritos: FatSecret[] = [];
   food: FatSecret = {
     id: 0,
     name: '',
@@ -27,19 +27,23 @@ export class FavPage implements OnInit {
     cholesterol_mg: 0,
     carbohydrates_total_g: 0,
     fiber_g: 0,
-    sugar_g: 0
+    sugar_g: 0,
   };
   esDesplegado = false;
   isPopoverOpen = false;
-  constructor(private foodService: FoodService,
+  constructor(
+    private foodService: FoodService,
     public router: Router,
-    private alertController: AlertController) {}
+    private alertController: AlertController
+  ) {}
 
   ngOnInit() {
-    this.foodService.getFavorites().subscribe(data => this.favoritos = data);
+    this.foodService
+      .getFavorites()
+      .subscribe((data) => (this.favoritos = data));
   }
 
-  cambiarEsDesplegado(){
+  cambiarEsDesplegado() {
     this.esDesplegado = !this.esDesplegado;
   }
   async presentAlertConfirma(f: FatSecret) {
@@ -47,40 +51,43 @@ export class FavPage implements OnInit {
       header: 'Eliminar favorito',
       message: `¿Estás seguro que deseas borrar <strong>${f.name}</
 strong> de la lista de favoritos?`,
-buttons: [ {
+      buttons: [
+        {
           text: 'Cancel',
           role: 'cancel',
           handler: (blah) => {
-console.log('Confirm Cancel: blah');
-} }, {
+            console.log('Confirm Cancel: blah');
+          },
+        },
+        {
           text: 'Okay',
           handler: () => {
             this.deleteFavorites(f.name);
             this.ngOnInit();
-          }
-} ]
-});
+          },
+        },
+      ],
+    });
     await alert.present();
   }
 
-  deleteFavorites(name: string){
+  deleteFavorites(name: string) {
     this.foodService.deleteFavorites(name);
   }
-  goToFood(){
+  goToFood() {
     this.router.navigateByUrl('/food');
   }
-  goToUser(){
+  goToUser() {
     this.router.navigateByUrl('usuario');
   }
 
-
-  openPopoverWithFood(f: FatSecret){
+  openPopoverWithFood(f: FatSecret) {
     this.food = f;
     console.log(this.food);
     this.isPopoverOpen = !this.isPopoverOpen;
   }
 
-  openPopover(){
+  openPopover() {
     this.isPopoverOpen = !this.isPopoverOpen;
   }
 }

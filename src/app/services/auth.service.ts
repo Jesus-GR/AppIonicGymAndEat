@@ -24,6 +24,9 @@ export class AuthService {
               private router: Router,
            ) { }
 
+  /**
+   * Efectua el login
+   */
   login(email: string, password: string): Promise<boolean>{
     return signInWithEmailAndPassword(this.auth, email, password)
     .then(
@@ -36,18 +39,37 @@ export class AuthService {
     );
   }
 
+  /**
+   *
+   * @param email Email que introduce el usuario
+   * @param password Contraseña que introduce el usuario
+   * @returns Registra al usuario
+   */
+
   register(email: string, password: string): Promise<UserCredential> {
     return createUserWithEmailAndPassword(this.auth, email, password);
     }
 
+    /**
+     *
+     * @param email al que manda la contraseña
+     * @returns
+     */
     resetPassword(email: string): Promise<void> {
       return sendPasswordResetEmail(this.auth, email);
       }
 
+      /**
+       *
+       * @returns Obtiene el usuario actual
+       */
   getCurrentUser(): any {
     return getAuth().currentUser;
     }
 
+    /**
+     * Desloguear usuario
+     */
   logout() {
     signOut(this.auth).then(()=>{this.router.navigateByUrl('/welcome');});
     }

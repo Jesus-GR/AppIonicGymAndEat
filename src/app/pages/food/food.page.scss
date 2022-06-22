@@ -1,14 +1,14 @@
-ion-searchbar{
+ion-searchbar {
   margin-bottom: 10px;
 }
 
-.gridContainer{
+.gridContainer {
   width: 100%;
   height: 470px;
   overflow-y: scroll;
 }
 
-.col__data{
+.col__data {
   text-align: end;
   margin-top: -10px;
   margin-bottom: 10px;
@@ -18,7 +18,7 @@ ion-searchbar{
   color: white;
 }
 
-.col__title{
+.col__title {
   margin-top: -10px;
   margin-left: 10px;
   margin-bottom: 10px;
@@ -28,7 +28,7 @@ ion-searchbar{
   background-color: var(--ion-color-tertiary);
 }
 
-.firstTitle{
+.firstTitle {
   background-color: var(--ion-color-secondary);
   text-align: center;
   margin-top: -10px;
@@ -39,7 +39,7 @@ ion-searchbar{
   color: white;
 }
 
-.col__button{
+.col__button {
   margin-top: -10px;
   margin-bottom: 10px;
   margin-right: 10px;
@@ -47,7 +47,7 @@ ion-searchbar{
   text-align: center;
   background-color: var(--ion-color-secondary);
 }
-.col__button--fav{
+.col__button--fav {
   cursor: pointer;
   color: white;
   margin-top: 20px;
@@ -55,11 +55,11 @@ ion-searchbar{
   background-color: var(--ion-color-secondary);
 }
 
-.col__button--fav:hover{
+.col__button--fav:hover {
   color: black;
 }
 
-.col__data--firstData{
+.col__data--firstData {
   height: 66px;
   margin-top: -7px;
   padding-top: 8px;
@@ -72,7 +72,7 @@ ion-searchbar{
   padding-right: 10px;
 }
 
-.caloriesTitle{
+.caloriesTitle {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -84,7 +84,7 @@ ion-searchbar{
   margin-left: 5px;
 }
 
-ion-input{
+ion-input {
   width: 90%;
   margin: auto;
   margin-top: 20px;
@@ -94,10 +94,10 @@ ion-input{
   text-align: center;
 }
 
-ion-input ion-icon{
+ion-input ion-icon {
   cursor: pointer;
   margin-left: 10px;
 }
-ion-tab-button{
+ion-tab-button {
   background-color: var(--ion-color-secondary);
 }

@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Ejercicio } from 'src/app/model/ejercicio';
 import { Rutina } from 'src/app/model/rutina';
 import { FormArray, ReactiveFormsModule } from '@angular/forms';
@@ -16,7 +21,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro-rutinas.page.scss'],
 })
 export class RegistroRutinasPage implements OnInit {
-
   isModalOpen: boolean;
   displayProductForm: boolean;
   rutina: Rutina = {};
@@ -24,23 +28,18 @@ export class RegistroRutinasPage implements OnInit {
   ejercicios: Ejercicio[] = [];
   usuario: Usuario;
 
+  constructor(
+    private rutinaService: RutinaService,
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
-  constructor(private rutinaService: RutinaService,
-              private auth: AuthService,
-              private router: Router,
-             ) {
+  ngOnInit() {}
 
-   }
-
-  ngOnInit() {
-
-  }
-
-  openOrCloseModal(){
+  openOrCloseModal() {
     this.isModalOpen = !this.isModalOpen;
     this.ejercicio = {};
   }
-
 
   onSubmit() {
     this.ejercicio.registroPesos = [];
@@ -48,18 +47,16 @@ export class RegistroRutinasPage implements OnInit {
     this.ejercicios.push(this.ejercicio);
     this.isModalOpen = !this.isModalOpen;
     this.ejercicio = {};
-}
+  }
 
-  submitRutina(){
+  submitRutina() {
     this.rutina.usuarioID = this.auth.getCurrentUser().uid;
     this.rutina.ejercicios = this.ejercicios;
     this.rutinaService.addUserRutina(this.rutina);
     this.router.navigateByUrl('/routines');
-
-
   }
 
-  goToRoutines(){
+  goToRoutines() {
     this.router.navigateByUrl('/routines');
   }
 }
