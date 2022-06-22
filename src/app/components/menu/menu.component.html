@@ -7,12 +7,12 @@
 
   <ion-content color="primary">
     <ion-list color="primary">
-      <ion-item  *ngIf="authService.getCurrentUser()" (click)="authService.logout()" href="/welcome" color="tertiary">
+      <ion-item  *ngIf="authService.getCurrentUser()" (click)="authService.logout()" color="tertiary">
         <ion-icon  name="exit" slot="start"></ion-icon>
         <ion-label  slot="end">Salir de la cuenta</ion-label>
       </ion-item>
 
-      <ion-item *ngIf="authService.getCurrentUser()" href="/usuario" color="tertiary">
+      <ion-item *ngIf="authService.getCurrentUser()" (click)="goToUser()" color="tertiary">
         <ion-icon name="person" slot="start"></ion-icon>
         <ion-label slot="end">Perfil</ion-label>
       </ion-item>
@@ -34,7 +34,7 @@
       <ng-template>
         <ion-content color="primary" class="contentPopover">
           <h1>¿Está seguro que quiere eliminar su usuario?</h1>
-          <ion-button color="secondary" (click)="deleteUser()" href="/welcome">Borrar</ion-button>
+          <ion-button color="secondary" (click)="deleteUser()" >Borrar</ion-button>
           <ion-button color="danger" (click)="mostrarPopover()">Cancelar</ion-button>
         </ion-content>
 

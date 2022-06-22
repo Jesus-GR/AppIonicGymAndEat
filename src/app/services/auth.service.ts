@@ -10,6 +10,7 @@ import {
   sendPasswordResetEmail,
   deleteUser
 } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { addDoc, deleteDoc,doc, Firestore } from 'firebase/firestore';
 import { Usuario } from '../model/usuario';
 import { UsuarioService } from './usuario.service';
@@ -20,6 +21,7 @@ export class AuthService {
 
   user: Usuario;
   constructor(private auth: Auth,
+              private router: Router,
            ) { }
 
   login(email: string, password: string): Promise<boolean>{
@@ -47,7 +49,7 @@ export class AuthService {
     }
 
   logout() {
-    signOut(this.auth);
+    signOut(this.auth).then(()=>{this.router.navigateByUrl('/welcome');});
     }
 
     /**
