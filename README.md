@@ -1,5 +1,7 @@
 ## Aplicación de gestión de entrenamientos GymEat
 
+[Pincha aquí para acceder a la aplicación](https://thriving-douhua-dfac89.netlify.app)
+
 ![gymEatLogo2](https://user-images.githubusercontent.com/72436145/174500630-c4b3f498-6e10-4fd6-9a7f-d27687b631f7.png)
 
 -- Biografía utilizada:
