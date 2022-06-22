@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { menuController } from '@ionic/core';
 import { Usuario } from 'src/app/model/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -35,6 +36,7 @@ export class MenuComponent implements OnInit {
 
   goToUser(){
     this.router.navigateByUrl('/usuario');
+    this.closeMenu();
   }
 
   mostrarPopover(){
@@ -45,8 +47,19 @@ export class MenuComponent implements OnInit {
    * Borrar usuario
    */
   async deleteUser(){
+    this.isPopoverOpen = false;
     await this.authService.deleteUserAuth().then(()=>{
+      this.closeMenu();
     });
   };
+
+  async closeMenu(){
+    menuController.close();
+  }
+
+  async logOut(){
+    this.authService.logout();
+    this.closeMenu();
+  }
 
 }

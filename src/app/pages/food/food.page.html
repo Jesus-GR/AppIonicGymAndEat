@@ -24,9 +24,10 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-  <ion-input debounce="500" placeholder="Introduce un alimento" clearInput   [(ngModel)]="query" (keyup)="obtenerDatos()">
+  <ion-input debounce="500" placeholder="Introduce un alimento" clearInput   [(ngModel)]="query" (change)="obtenerDatos()">
     <ion-icon (click)="obtenerDatos()" name="search-outline"></ion-icon>
   </ion-input>
+  <ion-button (click)="obtenerDatos()">Buscar</ion-button>
 
   <div class="gridContainer" *ngIf="food.name !== '' ">
     <ion-grid>

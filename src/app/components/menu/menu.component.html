@@ -7,7 +7,7 @@
 
   <ion-content color="primary">
     <ion-list color="primary">
-      <ion-item  *ngIf="authService.getCurrentUser()" (click)="authService.logout()" color="tertiary">
+      <ion-item  *ngIf="authService.getCurrentUser()" (click)="logOut()" color="tertiary">
         <ion-icon  name="exit" slot="start"></ion-icon>
         <ion-label  slot="end">Salir de la cuenta</ion-label>
       </ion-item>

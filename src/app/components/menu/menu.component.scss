@@ -3,11 +3,17 @@ ion-list{
   padding-bottom: -50px;
   background: none;
   border: none;
+  text-decoration: none;
 
   ion-item{
     margin-bottom: 10px;
     text-decoration: none;
     border: none;
+    cursor: pointer;
+  }
+
+  ion-item:hover{
+    border-bottom: 2px solid white;
   }
 }
 .contentPopover{
