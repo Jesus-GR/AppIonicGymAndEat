@@ -47,4 +47,12 @@ export class WelcomePage implements OnInit {
   logout() {
     this.authService.logout();
   }
+
+  goToRegister(){
+    this.router.navigateByUrl('/registro');
+  }
+
+  goToResetPasword(){
+    this.router.navigateByUrl('/reset-password');
+  }
 }

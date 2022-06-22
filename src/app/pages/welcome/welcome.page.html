@@ -17,10 +17,10 @@
   <ion-button class="button" color="secondary" (click)="login()">Entrar</ion-button>
 
   <div class="links">
-    <a href="/registro">¿Aún no estás registrado?</a>
+    <a (click)="goToRegister()">¿Aún no estás registrado?</a>
   </div>
   <div class="links">
-    <a href="/reset-password">¿Has olvidado la contraseña?</a>
+    <a (click)="goToResetPasword()">¿Has olvidado la contraseña?</a>
   </div>
 </ion-content>
 
